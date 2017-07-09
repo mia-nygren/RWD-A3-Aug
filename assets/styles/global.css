@@ -1,0 +1,119 @@
+/* Detta är den css som appliceras och gäller för alla sidor som använder sig av denna layout, default.vue */
+/* Först ligger styles som är aktuella för mindre skärmstorlekar */
+
+*, *:before, *:after  
+{
+  box-sizing: border-box; /* Detta för att border inte ska påverka storleken och det blir en mer konsekvent layout */ 
+  margin: 0;
+}
+
+html
+{
+  font-family: "Oxygen", Arial, sans-serif; /* 1 */  /* Teckensnittet finns i filen font.css och registreras i nuxt.config.js */
+  font-size: 100%;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+ html, body {
+   height: initial !important;
+   }
+  
+  body{
+  font-size:100%;
+  overflow-x: hidden;
+}
+
+/* Ul och paragraph*/ 
+
+ul {padding-left:0;}
+ a {
+   color:#000;
+   text-decoration:none;
+ }
+ p {
+   line-height:1.4;
+   margin-top:1.4em;
+   margin-bottom:1.4em;
+ }
+
+/* Rubriker / Headings */ 
+
+.title {  /* titel är sidornas huvudrubrik - för relevant återkoppling */
+  font-size: 1.6em;
+  font-weight: 700; 
+  color:#82BFB5;
+  max-width:25em;
+  margin:0 auto;
+  margin-bottom:20px;
+}
+
+h3 {
+   line-height: 1.4;
+ }
+.text h2 {
+  color:#82BFB5;
+  padding-top:15px;
+}
+
+/* Main är huvudinnehållet på sidorna */
+.main
+{ 
+  min-height:100vh; 
+  height:auto;
+  padding:20px 0;
+  padding-bottom:50px;
+  z-index: 0;
+  background:#FFF;
+  font-size:1.1em;
+}
+
+/* Text är en klass som omringar den text som består av längre paragrafer och ska uppfylla god läsbarhet */  
+.text {
+  max-width: 30em;  /* Begränsa radlängden för god läsbarhet */
+  padding:0 25px;
+}
+.text p {
+  /* bindesträck för bättre läsbarhet */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto; /* IE*/ 
+  hyphens:auto;
+}
+.linkInText {
+  font-weight:500;
+  text-decoration:underline;
+}
+
+@media(min-width:23.5em) {
+  .title {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width:30em) {
+  .text { 
+    margin:0 auto;
+    text-align: justify;
+    text-justify: inter-word; /* IE */    /* https://www.w3schools.com/cssref/css3_pr_text-justify.asp */
+  }
+}
+@media(min-width:38.8em) {
+  .text {
+    padding:0;
+  }
+}
+
+@media(min-width:55em) {
+  .text p {
+    font-size:1.2em; 
+    line-height:1.5; 
+    margin-top:1.5em;
+    margin-bottom:1.5em;
+  }
+  .text {
+    min-width:35em;
+  }
+}

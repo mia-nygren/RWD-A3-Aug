@@ -1,0 +1,13 @@
+{
+    "categories": [
+      { "name":"Elavfall"},
+      { "name":"Grovavfall"},
+      { "name":"Läkemedel"},
+      { "name":"Plast"}, 
+      { "name":"Batterier"},       
+      { "name":"Tidningar"},  
+      { "name":"Papper"}, 
+      { "name":"Trädgårdsavfall"},      
+      { "name":"Övrigt"}       
+    ]
+}
