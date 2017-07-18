@@ -8,7 +8,7 @@
 
 <script>
 import _ from 'lodash'
-import categoriesJSON from '~static/data/categories.json'
+import teaJSON from '~static/data/tea.json'
 
 /* Här hämtar jag ut kategorierna från en json-fil och listar dem i form av länkar som går till respektive sida för kategorin */
 export default {
@@ -20,7 +20,7 @@ export default {
   computed: {
     orderedCategories: function () {
       // Ordna json så det blir rätt sorterad i bokstavsordning
-      return _.orderBy(this.jsonToArray(categoriesJSON), 'name')
+      return _.orderBy(this.jsonToArray(teaJSON), 'name')
     }
   }
 }

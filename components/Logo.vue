@@ -1,40 +1,39 @@
 <template>
-	<div class="logoWrapper">
 		<div class="logo">
-		<img src="~assets/images/logo.svg" alt="Logotyp">
+		<img src="~assets/images/logo2.png" alt="Logotyp">
 		<div class="logoText">
 			<h1>
-				SORTERINGSGUIDEN
+				Tea2Go
 			</h1>
-		</div>
 		</div>
 	</div>
 </template>
 
 <style>
-.logoWrapper a {  
+.logo a {  
 	color:#000;
 }
-.logoWrapper {
-	margin: 0 auto;
-	text-align: center;
-	width: 100%;
-	height:100%;
-}
+
 .logo {
+	position: absolute;
+	left:100%;
+	width:120px;
+	padding-top:12px;
+	height:50px;
+	margin-left:-120px;
 	border-collapse:initial;
-	width:250px;
-	max-width:100%;
-	margin:0 auto;
-	height:40px;
+	border:1px solid #7d8066;
+	background:#FFF;
+	/* background-image:url("~assets/images/lighten.png");*/
 }
 .logo img {
-	float:right;
-	height:100%;
+	width:80%;
+	display:block;
 	margin:0 auto;
-	margin-top:4px;
 }
 .logoText{
+	padding-left:110%;
+	overflow:hidden;
 	width:11em;
 	margin:0 auto;
 }
@@ -43,5 +42,13 @@
 	font-weight: 700;
 	color:#000;
 	line-height:50px;
+}
+@media(min-width:900px){
+	.logo {
+		width:250px;
+		padding-top:12px;
+		height:90px;
+		left:50%;
+	}
 }
 </style>

@@ -4,8 +4,8 @@
       <div class="grass" aria-hidden="true"></div>
       <div class="footerBase">
         <div class="textWrapper">
-          <p class="copyright"> &copy; 2017 - Sorteringsguiden.</p>
-          <p class="contact">Kontakt: xxxx@sorteringsguiden.com </p>
+          <p class="copyright"> &copy; 2017  Tea2Go</p>
+          <p class="contact">Contact: info@tea2go.com </p>
         </div>
       </div>
     </footer>

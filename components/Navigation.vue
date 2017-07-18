@@ -1,26 +1,26 @@
 <template>
     <div class="nav" aria-label="Main Menu">
       <nav>
-        <!-- v-on-clickaway används för att se om användaren har klickat utanför menyn, då stängs menyn (javascript only) -->
+        <!-- v-on-clickaway används för att se om användaren har klickat utanför menyn, då stängs menyn (javascript only) 
+        v-on-clickaway anropar funktionen hideMenu som ändrar checkboxens status -->
         <div v-on-clickaway="hideMenu">
           <label id="menuButton" for="nav-trigger">&#8801;</label> <!-- https://stackoverflow.com/a/32081526/4178864 -->
           <input type="checkbox" id="nav-trigger" class="nav-trigger" v-model="checked" />
           <ul class="navigation">
             <!-- nuxt-link används för att navigera i applikationen, och den ger också en active klass för den länk som hör samman med sidan man är på -->
             <li v-on:click="hideMenu" class="home">
-              <nuxt-link to="/" exact>Hem</nuxt-link>
+              <nuxt-link to="/" exact>Home</nuxt-link>
             </li>
-            <li v-on:click="hideMenu" class="recycle">
-              <nuxt-link to="/sortera">Sortera & Återvinn</nuxt-link>
+            <li v-on:click="hideMenu" class="teaVariaties">
+              <nuxt-link to="/tea">Tea Variaties</nuxt-link>
             </li>
-            <li v-on:click="hideMenu" class="guide">
-              <nuxt-link to="/about">Om sopsorteringsguiden</nuxt-link>
+            <li v-on:click="hideMenu" class="teaHouses">
+             <nuxt-link to="/teahouses">Tea Houses</nuxt-link>
             </li>
-            <li v-on:click="hideMenu" class="municipality">
-             <nuxt-link to="/kommun">Välj kommun</nuxt-link>
+             <li v-on:click="hideMenu" class="openingHours">
+              <nuxt-link to="/hours">Opening hours</nuxt-link>
             </li>
           </ul>
-          <div class="navBackground"></div>
         </div>
       </nav>
   </div>
@@ -56,37 +56,31 @@
 <style scoped>
   .navigation {
     height: 200px;
-    width: 100%;
-    background-image: url('../assets/images/sloganBK.png');
-	  background-repeat:y;
+    width: 14em;
+    background:#FFF;
     list-style-type: none;
     z-index: 99;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
     position: absolute;
     top:50px;
-    left:-105%;
+    left:-15em;
   }
-  .navBackground { 
-    background-color:#FFF;
-    position: absolute;
-    top:50px;
-    left:-105%;
-    z-index:98;
-    height:200px;
-    width:100%;
+
+  .navigation a {
+    color:#5A5651;
   }
   .navigation a:hover {
-    background-color: #edf9f8;
+    background-color: #F1EDE9;
   }
   
-  .nuxt-link-active {
+  .navigation .nuxt-link-active {
     color: #FFF;
-    background-color: #82BFB5;
+    background-color: #7d8066;
     font-weight: 700;
   }
   
   .navigation .nuxt-link-active:hover {
-    background: #82BFB5;
+    background: #7d8066;
   }
   .navigation li {
     height:50px;
@@ -96,6 +90,7 @@
     line-height:50px;
     display: block;
     padding-left:1.5em;
+
   } 
   .nav-trigger {
     position: absolute;
@@ -104,7 +99,7 @@
 
   /* -- Menyknapp ( Hamburgermenu )--*/ 
   #menuButton {
-    padding-left:5px;
+    color:#5A5651;
     width:55px;
     height:50px;
     position: relative;
@@ -123,20 +118,12 @@
     -o-transform:scale(1.4, 1.0);
     transform:scale(1.4, 1.0);
   }
-  /* Dynamisk klass */
-  .hideMenu {
-    position: absolute;
-    left: -105% !important;
-  }
-  /* Make the Magic Happen */
-  
   .nav-trigger + label,
-  .navigation, .navBackground,
-  .hideMenu {
+  .navigation, .navBackground {
     transition: left 0.2s;
   }
   
-  .nav-trigger:checked ~ .navigation, .nav-trigger:checked ~ .navBackground {
+  .nav-trigger:checked ~ .navigation {
     display: block;
     left:0;
   }
@@ -147,29 +134,25 @@
     .navigation {
       box-sizing:initial;
       padding:0;
+      width: 33em;
       height: 50px;
-      width: 40em;
       position:inherit;
       box-shadow:none;
     }
     .nav li a {
       padding:0;
     }
-    .navigation a:hover {
-    background-color: #FFF;
-  }
+
     /* defining a width for the menu items */ 
     .nav .home {
       width:5em;
     }
-    .nav .recycle{
-      width:12em;
-    }
-    .nav .guide {
-      width:14em;
-    }
-    .nav .municipality {
+    .nav .teaHouses , .teaVariaties{
       width:9em;
+    }
+
+    .nav .openingHours {
+      width:10em;
     }
     .nav ul {
       text-align: center;
@@ -177,11 +160,6 @@
     .nav ul li {
       margin:0; 
       float:left;
-      display: inline-block;
-    }
-    .navBackground {
-      height:0;
-      display:none;
     }
   }
 </style>

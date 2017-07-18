@@ -1,0 +1,7 @@
+{ 
+    "cities": [
+        { "name": "Helsingfors"},
+        { "name": "Stockholm"},
+        { "name": "Oslo"}        
+    ]
+}

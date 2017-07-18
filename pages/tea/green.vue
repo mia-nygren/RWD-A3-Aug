@@ -1,12 +1,13 @@
 <template>
     <div>
-        <Category name='Plast'/>
+        <Category name='Green'/>
     </div>
 
 </template>
 
 <script>
 import Category from '~components/categories/Category.vue'
+
 export default {
   components: {
     Category

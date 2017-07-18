@@ -1,16 +1,16 @@
 <template>
   <div class="mainQuestion">
-    <h1> Vad vill du sopsortera? </h1>
+    <h1> Choose a tea: </h1>
     <div id="searchBar" class="jsOnly">
       <div class="searchbarWrapper">
-      <search v-if="showMounted" v-bind:optionsArray="orderedCategories" placeholderText="Sök avfall" />
+      <search v-if="showMounted" v-bind:optionsArray="orderedCategories" placeholderText="Search tea" />
       </div>
       <div class="imageWrapper">
-      <img src="~assets/images/lookingUp.png" alt="Tjej i naturen" />
+      
       </div>
     </div>
 
-    <p class="complementText jsOnly"> Vanliga sorteringskategorier: </p>
+    <p class="complementText jsOnly"> Choose a tea: </p>
     <div v-if="showMounted">
     <categories/>
     </div>
@@ -38,13 +38,12 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
 import Categories from '~components/categories/Categories.vue'
 import _ from 'lodash'
-import categoriesJSON from '~static/data/categories.json'
+import teaJSON from '~static/data/tea.json'
 import Search from '~components/Search'
 import Municipalities from '~components/municipalities/Municipalities'
 
@@ -71,7 +70,7 @@ export default {
     },
     orderedCategories: function () {
       // Ordna json så det blir rätt sorterad i bokstavsordning och ta ut bara namnen för söklistan
-      return _.orderBy(this.jsonToArray(categoriesJSON), 'name').map(_.property('name'))
+      return _.orderBy(this.jsonToArray(teaJSON), 'name').map(_.property('name'))
     }
   },
   mounted () {

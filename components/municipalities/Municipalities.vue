@@ -2,14 +2,14 @@
   <div>
   <ul><!--  <ul v-for='municipality in municipalitesJSON'>  -->  
       <li v-for="m in orderedMunicipalities "> 
-        <nuxt-link v-bind:to="{ path: '/kommun/' + m.name.toLowerCase() }"> {{ m.name }} </nuxt-link> </li>
+        <nuxt-link v-bind:to="{ path: '/teahouses/' + m.name.toLowerCase() }"> {{ m.name }} </nuxt-link>  view opening hours</li>
     </ul>
    </div>
 </template>
 
 <script>
 import _ from 'lodash'
-import municipalitesJSON from '~/static/data/municipalities.json'
+import citiesJSON from '~/static/data/cities.json'
 export default {
   layout: 'default',
   methods: {
@@ -20,7 +20,7 @@ export default {
   computed: {
     orderedMunicipalities: function () {
       // Ordnar json så det blir rätt sorterad i bokstavsordning
-      return _.orderBy(this.jsonToArray(municipalitesJSON), 'name')
+      return _.orderBy(this.jsonToArray(citiesJSON), 'name')
     }
   }
 }
@@ -29,8 +29,8 @@ export default {
 <style scoped>
 ul {
   padding-left:1.5em;
-  max-width:300px;
   text-decoration: none;
+  list-style-type: none;
 }
 
 ul li {
@@ -39,7 +39,7 @@ ul li {
 }
 
 ul li a {
-  display:block;
+  display:block-inline;
   height:100%;
 }
 </style>

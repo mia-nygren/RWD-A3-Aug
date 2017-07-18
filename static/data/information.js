@@ -1,8 +1,8 @@
-import categoriesJson from '~/static/data/categories'
+import teaJSON from '~/static/data/tea'
 
 let C = {}
-for (let category of categoriesJson.categories) {
-  C[category.name] = category.name
+for (let tea of teaJSON.tea) {
+  C[tea.name] = tea.name
 }
 
 const information = [

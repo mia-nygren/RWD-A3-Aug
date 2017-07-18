@@ -1,13 +1,11 @@
 <template>
   <div>
     <div class="text">
-      <h1 class="title"> Sortera & Återvinn </h1>
+      <h1 class="title"> Tea Variaties </h1>
+      <h3> Organic and Fair trade </h3>
       <p>
-        Nedan kan du läsa om hur du sorterar olika avfall. </p>
-      <p>
-        Ibland sorteras avfall olika beroende på kommun.<br>
-        <nuxt-link to="/kommun" class="linkInText"> Välj kommun </nuxt-link>
-        för att se vilka undantag som gäller där du bor. </p> 
+        We have a lot of tea variaties! All of them are organic and fairtrade. </p>
+    
         <div class="jsOnly">
           <p> Vill du istället söka efter ett speciellt avfall kan du göra det 
             <nuxt-link class="linkInText" v-bind:to="{ path: '/', hash: 'searchBar' }">här</nuxt-link> </p>
@@ -28,7 +26,7 @@
 
 <script>
 import _ from 'lodash'
-import categoriesJSON from '~static/data/categories.json'
+import teaJSON from '~static/data/tea.json'
 import recycleExceptions from '~static/data/recycleExceptions'
 import CategoryCard from '~components/categories/CategoryCard'
 import Search from '~components/Search'
@@ -55,7 +53,7 @@ export default {
   computed: {
     orderedCategories: function () {
       // Ordna json så det blir rätt sorterad i bokstavsordning
-      return _.orderBy(this.jsonToArray(categoriesJSON), 'name')
+      return _.orderBy(this.jsonToArray(teaJSON), 'name')
     }
   }
 }

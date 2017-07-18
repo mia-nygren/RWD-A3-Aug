@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Municipality name='Nora'/>
+        <Municipality name='Helsingfors'/>
     </div>
 </template>
 

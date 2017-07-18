@@ -1,25 +1,25 @@
-import categoriesJson from '~/static/data/categories'
-import municipalitiesJson from '~/static/data/municipalities'
+import teaJSON from '~/static/data/tea'
+import citiesJson from '~/static/data/cities'
 
-let C = {}
-for (let category of categoriesJson.categories) {
-  C[category.name] = category.name
+let T = {}
+for (let tea of teaJSON.tea) {
+  T[tea.name] = tea.name
 }
 
 let M = {}
-for (let municipality of municipalitiesJson.municipalities) {
-  M[municipality.name] = municipality.name
+for (let city of citiesJson.cities) {
+  M[city.name] = city.name
 }
 
 const recycleExceptions = [
-  { municipality: M.Nora,
+  { municipality: M.Oslo,
     additionalInfo: [{
-      category: C.Plast,
+      category: T.Plast,
       info: 'I Nora kommun sorterar vi plast i två olika behållare. Mjukplast för sig och hårdplast för sig.'
     }]},
-  { municipality: M.Lindesberg,
+  { municipality: M.Helsingfors,
     additionalInfo: [{
-      category: C.Batterier,
+      category: T.Batterier,
       info: 'I Lindesberg kommun sorterar vi batterier i två olika behållare.'
     }]}
 ]
