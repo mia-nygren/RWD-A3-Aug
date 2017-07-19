@@ -5,10 +5,8 @@
         <div class="categoryIMG"> 
         </div>
         <p class="notComplete"> Detta är en prototypsida, som jag inte har hunnit att styla,
-          men som jag har tänkt mig ska innehålla bild och information om den valda kategorin.</p>
-        <h3>Avvikelser:  </h3>
-        <p> I dessa kommuner sorteras {{ name }} på ett annorlunda vis. Läs vad som gäller där du bor genom att klicka på din kommun.</p>
-    </div>
+          men som jag har tänkt mig ska innehålla bild och information om det valda teet.</p>
+            </div>
 </template>
 
 <script>

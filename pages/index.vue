@@ -1,40 +1,34 @@
 <template>
-  <div class="mainQuestion">
+  <div class="mainContent">
     <h1> Choose a tea: </h1>
     <div id="searchBar" class="jsOnly">
       <div class="searchbarWrapper">
       <search v-if="showMounted" v-bind:optionsArray="orderedCategories" placeholderText="Search tea" />
       </div>
-      <div class="imageWrapper">
-      
-      </div>
     </div>
-
-    <p class="complementText jsOnly"> Choose a tea: </p>
-    <div v-if="showMounted">
+        <div v-if="showMounted">
     <categories/>
     </div>
-    <!-- Om användaren inte har Javascript hamnar bilden nedanför kategorierna istället -->
-    <!-- <noscript>
-      <img src="~assets/images/lookingUp.png" alt="Tjej i naturen" />
-    </noscript> -->
-
+    
     <div class="text">
-      <h2> Hur sopsorterar jag? </h2>
-      <p> Se våran sorteringsguide under
-        <nuxt-link class="linkInText" to="/sortera">Sortera & Återvinn</nuxt-link>
-        för att få en översikt på vad man kan sortera och hur. </p>
+      <h2> Our Tea houses </h2>
+      <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! 
+      We start our days by baking bread that you can have alongside with your cup of tea! </p>
+      <p>Currently we have three teahouses placed in Skandinavia.</p>
+      </div>
 
-      <h2>Varför ska jag sortera?</h2>
-      <p> Att sortera är viktigt för miljön. Lorem ipsum dolor sit amet, an mutat atomorum tractatos sit. Vim propriae delicata
-        no. At vis feugait consequat, nec eu possit expetenda persequeris. Sumo interesset te vel, nam labores fuisset in,
-        usu in viris moderatius appellantur. Ex laudem aperiam volumus mea, in nibh illud praesent sit. </p>
+      <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
+      <div class="text">
+      <h2>Organic and fairtrade</h2>
+      <p>Our tea houses only serves fairtrade and organic drinks and food. This means that you get to eat fresh and healthy.</p>
+      <p>The people we buy our ingredients and teas from are getting a fair price for their products and trades. 
+        You can choose between a vast selection of quality organic and fairtraide tea to have with your meal, or just have a delicious cup of tea on it's own.</p>
       
-      <h2> Välj kommun </h2>
-      <p>För att se vilka undantag som gäller i din kommun kan du välja din kommun nedan:</p>
+      <h2> Visit Scandinavia </h2>
+      <p>....</p>
       <div v-if="showMounted">
-      <!-- Municipalites är en komponent som listar alla kommuner man har lagt in, så att de visas i menyn -->
-      <Municipalities />
+      <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
+      <TeaHouses />
       </div>
     </div>
   </div>
@@ -45,14 +39,14 @@ import Categories from '~components/categories/Categories.vue'
 import _ from 'lodash'
 import teaJSON from '~static/data/tea.json'
 import Search from '~components/Search'
-import Municipalities from '~components/municipalities/Municipalities'
+import TeaHouses from '~components/teahouses/TeaHouses'
 
 export default {
   layout: 'default',
   components: {
     Categories,
     Search,
-    Municipalities
+    TeaHouses
   },
   data () {
     return {
@@ -69,7 +63,7 @@ export default {
       return obj.name
     },
     orderedCategories: function () {
-      // Ordna json så det blir rätt sorterad i bokstavsordning och ta ut bara namnen för söklistan
+      // Ordna json så det blir rätt i bokstavsordning och ta ut bara namnen för söklistan
       return _.orderBy(this.jsonToArray(teaJSON), 'name').map(_.property('name'))
     }
   },
@@ -80,34 +74,24 @@ export default {
 </script>
 
 <style>
-.mainQuestion {
+.mainContent {
   text-align: center;
-}
-.mainQuestion h1 {
-  font-size:1.2em;
-  line-height:2em;
-}
-.mainQuestion img {
-  max-width:100%;
-  padding:20px 0;
-}
-.mainQuestion .text {
-  text-align:left;
-}
-.complementText {
-  font-style:italic;
-  font-size:0.9em;
-  line-height:1.2;
+  padding-bottom:50px;
 }
 .searchbarWrapper {
   min-height:65px;
 }
-.imageWrapper {
-  min-height: 360px;
-}
+ .organic {
+      width:180px;
+      margin:0 auto;
+    }
 @media(min-width:30em) {
   .mainQuestion h1 {
   font-size:1.6em;
 }
+.organic {
+      width:250px;
+      margin-left:300px;
+    }
 }
 </style>

@@ -1,20 +1,14 @@
 <template>
     <div v-if="isMounted" class="card">
-        <nuxt-link class="readMoreIMG" v-bind:to="{ path: '/avfall/' + name.toLowerCase() }">
+        <nuxt-link class="readMoreIMG" v-bind:to="{ path: '/tea/' + cleanSlug(name) }">
         <h2> {{ name }} </h2>
         <div class="categoryIMG">
          <!-- Här bör en bild hamna -->
         </div> </nuxt-link> 
-        <div class="info"> 
-          <p> {{ summary }} ... </p>
-          <nuxt-link class="readMore" v-bind:to="{ path: '/avfall/' + name.toLowerCase() }">Läs mer</nuxt-link>
-        </div>
     </div>
 </template>
 
 <script>
-import information from '~static/data/information'
-/* TODO - logiken här är för snabbt skriven och behöver ändras och kollas över!!! */
 export default {
   props: {
     name: {
@@ -34,39 +28,11 @@ export default {
     }
   },
   methods: {
-    limitCharacters: (text, chars) => {
-      let str = text
-      if (str !== null & str !== '' & str !== undefined) {
-        if (str.length > chars) {
-          str = str.substring(0, chars)
-        }
-      } else {
-        str = ''
-      }
-      return str
-    },
-    getInfo: () => {
-      this.info = information.filter((item) => {
-        return item.category === this.name
-      })
-      try {
-        console.log(this.name)
-        console.log('name above')
-        console.log(this.info)
-        if (this.info) {
-          this.info = this.info[0].info // todo - make clearer
-          this.summary = this.limitCharacters(this.info, 150)
-        } else {
-          this.info = ''
-        }
-      } catch (e) {
-          // no info
-        console.log('no info')
-      }
+    cleanSlug (slug) {
+      return slug.toLowerCase().split(' ').join('')
     }
   },
   mounted () {
-    this.getInfo()
     this.isMounted = true
   }
 }
@@ -100,21 +66,6 @@ export default {
 }
 .categoryIMG .readMoreIMG {
   display:block;
-}
-.info {
-    padding:10px;
-    height:auto;
-    border-top:1px solid #000;
-}
-.info p{
-    height:5em;   
-}
-.info .readMore {
-  height:55px;
-  display:block;
-  line-height:55px;
-  font-weight:700;
-  font-size:1.2em;
 }
 
 @media (min-width:30em) {

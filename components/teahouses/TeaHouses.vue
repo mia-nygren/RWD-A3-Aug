@@ -1,8 +1,8 @@
 <template>
   <div>
   <ul><!--  <ul v-for='municipality in municipalitesJSON'>  -->  
-      <li v-for="m in orderedMunicipalities "> 
-        <nuxt-link v-bind:to="{ path: '/teahouses/' + m.name.toLowerCase() }"> {{ m.name }} </nuxt-link>  view opening hours</li>
+      <li v-for="t in orderedTeaHouses"  > 
+        <nuxt-link v-bind:to="{ path: '/teahouses/' + t.name.toLowerCase() }"> {{ t.name }} </nuxt-link>  view opening hours</li>
     </ul>
    </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     }
   },
   computed: {
-    orderedMunicipalities: function () {
+    orderedTeaHouses: function () {
       // Ordnar json så det blir rätt sorterad i bokstavsordning
       return _.orderBy(this.jsonToArray(citiesJSON), 'name')
     }

@@ -16,6 +16,7 @@
 
 .logo {
 	position: absolute;
+	top:100px;
 	left:100%;
 	width:120px;
 	padding-top:12px;
@@ -23,11 +24,10 @@
 	margin-left:-120px;
 	border-collapse:initial;
 	border:1px solid #7d8066;
-	background:#FFF;
-	/* background-image:url("~assets/images/lighten.png");*/
+	background-image:url("~assets/images/lighten.png");
 }
 .logo img {
-	width:80%;
+	width:100%;
 	display:block;
 	margin:0 auto;
 }
@@ -45,9 +45,9 @@
 }
 @media(min-width:900px){
 	.logo {
-		width:250px;
-		padding-top:12px;
-		height:90px;
+		width:200px;
+		padding:12px;
+		height:80px;
 		left:50%;
 	}
 }

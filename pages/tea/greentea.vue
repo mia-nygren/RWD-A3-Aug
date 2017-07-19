@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Category name='Green'/>
+        <Category name='Green Tea'/>
     </div>
 
 </template>

@@ -1,14 +1,11 @@
 <template>
     <div>
-        <Municipality name='Stockholm'/>
+        hej
     </div>
 </template>
 
 <script>
-import Municipality from '~components/municipalities/Municipality.vue'
 export default {
-  components: {
-    Municipality
-  }
+  layout: 'teahouse'
 }
 </script>
