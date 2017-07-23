@@ -12,7 +12,7 @@ module.exports = {
     htmlAttrs: {
       lang: 'sv-se',
     },
-    title: 'SorteringsGuiden',
+    title: 'tea2go',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -34,7 +34,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    publicPath: 'https://mia-nygren.github.io/RWD-NUXT-A3/',
+    publicPath: 'https://mia-nygren.github.io/RWD-A3-Aug/',
     vendor: ['vue-multiselect', 'lodash'],
     loaders: [
       {

@@ -5,11 +5,17 @@
       <h3> Organic and Fair trade </h3>
       <p>
         We have a lot of tea variaties! All of them are organic and fairtrade. </p>
+        <h1> Choose a tea: </h1>
+    <div id="searchBar" class="jsOnly">
+      <div class="searchbarWrapper">
+      <search v-if="showMounted" v-bind:optionsArray="orderedCategoriesSearch" placeholderText="Search tea" />
+      </div>
+    </div>
     
     </div>
     <div class="categoriesWrapper">
       <div class="lighten">
-      <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" />
+      <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:isThumbnail="false"/>
       </div>
     </div>
     <div class="text">
@@ -23,7 +29,6 @@
 <script>
 import _ from 'lodash'
 import teaJSON from '~static/data/tea.json'
-import recycleExceptions from '~static/data/recycleExceptions'
 import CategoryCard from '~components/categories/CategoryCard'
 import Search from '~components/Search'
 
@@ -34,11 +39,14 @@ export default {
     CategoryCard,
     Search
   },
+  head () {
+    return {
+      title: 'tea2go - tea variaties'
+    }
+  },
   data () {
     return {
-      recycleExceptions,
-      municipalityData: null,
-      waste: ['Elavfall', 'testing again']
+      showMounted: false
     }
   },
   methods: {
@@ -50,12 +58,19 @@ export default {
     orderedCategories: function () {
       // Ordna json så det blir rätt sorterad i bokstavsordning
       return _.orderBy(this.jsonToArray(teaJSON), 'name')
+    },
+    orderedCategoriesSearch: function () {
+      // Ordna json så det blir rätt i bokstavsordning och ta ut bara namnen
+      return _.orderBy(this.jsonToArray(teaJSON), 'name').map(_.property('name'))
     }
+  },
+  mounted () {
+    this.showMounted = true
   }
 }
 </script>
 
-<style>
+<style scoped>
 .lenght {
   color:red;
 }
@@ -67,7 +82,9 @@ export default {
    margin-bottom:40px;
    margin-top:70px;
  }
- .categoriesContainer {
-   
- }
+
+ .searchbarWrapper {
+  min-height:65px;
+}
+
 </style>

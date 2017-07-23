@@ -1,8 +1,8 @@
 <template>
-    <div v-if="isMounted" class="card">
+    <div v-if="isMounted" v-bind:class="['card', {'smallCard': isThumbnail, 'bigCard': !isThumbnail}]">
         <nuxt-link class="readMoreIMG" v-bind:to="{ path: '/tea/' + cleanSlug(name) }">
         <h2> {{ name }} </h2>
-        <div class="categoryIMG">
+        <div v-bind:class="['teaImage', {'thumbNail' : isThumbnail , bigImage : !isThumbnail }]">
          <!-- Här bör en bild hamna -->
         </div> </nuxt-link> 
     </div>
@@ -18,6 +18,11 @@ export default {
     imageURL: {
       type: String,
       required: false
+    },
+    isThumbnail: {
+      type: Boolean,
+      required: true,
+      default: true
     }
   },
   data () {
@@ -46,8 +51,6 @@ export default {
   display: inline-block;
   margin: 2em 0;
   margin-bottom:4em;
-  width: 98%;
-  min-height:30em;
   height:auto!important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -59,17 +62,25 @@ export default {
 .card h2 {
   padding:20px;
 }
-.categoryIMG {
+.bigCard {
+  min-height:30em;
+}
+
+.smallCard {
+  width:15em;
+  min-height:10em;
+}
+.teaImage {
     height:200px!important;
     background:#f2f0ef;
     cursor:pointer;
 }
-.categoryIMG .readMoreIMG {
+.teaImage .readMoreIMG {
   display:block;
 }
 
 @media (min-width:30em) {
-    .card {
+    .bigCard {
         width:30em;
         margin:2em;
     }
