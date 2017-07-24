@@ -5,7 +5,7 @@
       :close-on-select="true" :show-labels="false" v-bind:placeholder="placeholderText" @select="valueSelected"></multiselect>
     </div>
     <div class="searchResult" v-if="displayResults && displayRes()">
-      <category-card v-bind:name="result" />
+      <category-card v-bind:name="result" v-bind:isThumbnail="true" />
     </div>
   </div>
 </template>
@@ -80,11 +80,11 @@ export default {
 <style src="../plugins/vue-multiselect/vue-multiselect.css"></style>
 <style>
 /* Här överskriver jag den CSS som jag inte vill ha! */
-.v-select {
-    width: 14em;
-    margin: 0 auto;
-    margin-left:-40px;
+.multiselect__tag, .multiselect__option--highlight,  .multiselect__option--highlight:after , .multiselect__option--selected.multiselect__option--highlight  {
+  background:#7d8066;
+  background-color:#7d8066;
 }
+
 .searchBar {
   max-width:10em;
   margin:0 auto!important;

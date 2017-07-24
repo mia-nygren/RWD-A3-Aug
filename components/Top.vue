@@ -38,6 +38,10 @@ export default {
     background: #FFF;
     height: 50px;
     position: absolute;
+    z-index: 999;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
+}
+@media(min-width:30em) {
+  
 }
 </style>

@@ -16,6 +16,7 @@
 
 .logo {
 	position: absolute;
+	z-index: 999;
 	top:100px;
 	left:100%;
 	width:120px;

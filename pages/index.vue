@@ -5,21 +5,18 @@
       <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! We start our days by baking bread that you can have alongside with your cup of tea! </p>
       <p>Currently we have three teahouses placed in Skandinavia.</p>
     </div>
-  
+  <div v-if="showMounted">
+        <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
+        <TeaHouses />
+      </div>
     <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
     <div class="text">
       <h2>Organic and fairtrade</h2>
       <p>Our tea houses only serves fairtrade and organic drinks and food. This means that you get to eat fresh and healthy.</p>
       <p>The people we buy our ingredients and teas from are getting a fair price for their products and trades. You can choose between a vast selection of quality organic and fairtraide tea to have with your meal, or just have a delicious cup of tea on it's own.</p>
   
-      <h2> Visit Scandinavia </h2>
-      <p>....</p>
-      <div v-if="showMounted">
-        <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
-        <TeaHouses />
-      </div>
     </div>
-    <h2> Our Tea Varaities </h2>
+    <h2 class="centered"> Our Tea Varaities </h2>
     <div v-if="showMounted" class="lighten categoriesWrapper">
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:isThumbnail="true" />
     </div>
@@ -68,7 +65,6 @@ export default {
 
 <style>
 .mainContent {
-  text-align: center;
   padding-bottom:50px;
 }
  .organic {
@@ -81,7 +77,7 @@ export default {
    text-align:center;
    margin-bottom:40px;
    margin-top:70px;
-   background: red;
+   background: #7d8066;
  }
 @media(min-width:30em) {
   .mainQuestion h1 {

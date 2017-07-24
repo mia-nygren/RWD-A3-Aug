@@ -64,6 +64,7 @@
     position: absolute;
     top:50px;
     left:-15em;
+    z-index:999;
   }
 
   .navigation a {

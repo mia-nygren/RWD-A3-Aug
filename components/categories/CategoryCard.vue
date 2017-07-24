@@ -21,8 +21,8 @@ export default {
     },
     isThumbnail: {
       type: Boolean,
-      required: true,
-      default: true
+      required: false,
+      default: false
     }
   },
   data () {
@@ -67,7 +67,7 @@ export default {
 }
 
 .smallCard {
-  width:15em;
+  width:12em;
   min-height:10em;
 }
 .teaImage {

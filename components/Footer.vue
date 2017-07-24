@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <footer>
-      <div class="grass" aria-hidden="true"></div>
+      <div class="footerBackground" aria-hidden="true"></div>
       <div class="footerBase">
         <div class="textWrapper">
           <p class="copyright"> &copy; 2017  Tea2Go</p>
@@ -12,8 +12,8 @@
   </div>
 </template>
 <style scoped>
-.grass {
-     background-image: url('../assets/images/grass.png');
+.footerBackground {
+     /* background-image: url('../assets/images/footerBackground.png'); */
      height:90px;
      margin-top:-15px; 
  }

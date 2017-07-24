@@ -1,13 +1,13 @@
 <template>
-  <div class="headerImage">
-  
+  <div class="box"> 
+  <div class="content">
     <div class="headlineText">
       <h3>
         Have a cup of tea that <br/> makes a difference! 
       </h3>
       <p> We make sure that all of our tea are fair trade! We also offer ecological food and drinks, all for a fair price! </p>
     </div>
-    
+    </div>
   </div>
 </template>
 
@@ -23,12 +23,25 @@
 </script>
 
 <style>
-  .headerImage {
-    height: 800px;
+  .box { /* Tip taken from a tutorial/article http://www.mademyday.de/css-height-equals-width-with-pure-css.html */ 
+    position: relative;
     background-image: url('../assets/images/headerPhoto.jpg');
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    z-index:1;
   }
+  .box:before {
+    content:'';
+    display:block;
+    padding-top:100% 
+  } 
+  .content{   
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
      
   .headlineText {
     margin: 0 auto;
@@ -45,6 +58,12 @@
   }
   .headlineText p {
     font-size:1.5em;
+  }
+
+  @media(min-width:72em) {
+  .box:before {
+    padding-top:45% 
+  }
   }
 
 </style>
