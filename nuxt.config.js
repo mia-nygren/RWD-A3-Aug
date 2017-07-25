@@ -1,6 +1,6 @@
 module.exports = {
   router: {
-    base: '/RWD-NUXT-A3/'
+    base: '/RWD-A3-Aug/'
   },
   performance: {
     prefetch: false

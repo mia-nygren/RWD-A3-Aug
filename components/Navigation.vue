@@ -9,7 +9,7 @@
           <ul class="navigation">
             <!-- nuxt-link används för att navigera i applikationen, och den ger också en active klass för den länk som hör samman med sidan man är på -->
             <li v-on:click="hideMenu" class="home">
-              <nuxt-link to="/" exact>Home</nuxt-link>
+              <nuxt-link to="/" exact >Home</nuxt-link>
             </li>
             <li v-on:click="hideMenu" class="teaVariaties">
               <nuxt-link to="/tea">Tea Variaties</nuxt-link>
@@ -74,7 +74,7 @@
     background-color: #F1EDE9;
   }
   
-  .navigation .nuxt-link-active {
+  .navigation .nuxt-link-active, .navigation .nuxt-link-exact-active {
     color: #FFF;
     background-color: #7d8066;
     font-weight: 700;

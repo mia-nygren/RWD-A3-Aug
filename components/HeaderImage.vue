@@ -5,7 +5,7 @@
       <h3>
         Have a cup of tea that <br/> makes a difference! 
       </h3>
-      <p> We make sure that all of our tea are fair trade! We also offer ecological food and drinks, all for a fair price! </p>
+      <p> We make sure that all of our tea are fair trade! We also have organic food and drinks, all for a fair price! </p>
     </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
   .box:before {
     content:'';
     display:block;
-    padding-top:100% 
+    padding-top:110% 
   } 
   .content{   
     position:  absolute;
@@ -42,27 +42,75 @@
     bottom: 0;
     right: 0;
 }
-     
   .headlineText {
-    margin: 0 auto;
-    text-align: center;
-    width:600px;
-    padding-top: 200px;
+    padding-top: 100px;
     font-weight: 400;
-    font-size: .8em;
-    color: #656263;
+    font-size: .3em;
     line-height: 1.4;
+    color: #656263;
   }
   .headlineText h3 {
     font-size:4em;
   }
-  .headlineText p {
-    font-size:1.5em;
+  .headlineText, .headlineText p {
+    text-align: left;
+    margin:0 auto;
   }
-
-  @media(min-width:72em) {
+  .headlineText p {
+    font-size:3em;
+    width:15em; 
+  }
+  @media(min-width:18.6em) {
+     .headlineText {
+    font-size: .4em;
+    text-align:center;
+     }
+      .headlineText p {
+    font-size:2.5em;
+    text-align:center;
+    width:auto;
+  }
+   .box:before {
+    content:'';
+    display:block;
+    padding-top:80% 
+  }
+  }
+  @media(min-width:40em) {
   .box:before {
     padding-top:45% 
+  }
+  .headlineText {
+    width:48em;
+    font-size: .5em;
+    line-height: 1.2;
+    padding-top: 110px;
+  }
+  }
+
+  @media(min-width:55em) {
+  .box:before {
+    padding-top:36em;
+  }
+   .headlineText {
+    font-size: .8em;
+    line-height: 1.4;
+    padding-top: 200px;
+  }
+   .headlineText p {
+    font-size:2em;
+    margin-top:10px;
+  }
+  }
+ @media(min-width:62em) {
+  .box:before {
+    padding-top:36em;
+  }
+ 
+  }
+  @media(min-width:80em) {
+  .box:before {
+    padding-top:38em;
   }
   }
 

@@ -16,13 +16,12 @@
 
 .logo {
 	position: absolute;
-	z-index: 999;
-	top:100px;
-	left:100%;
-	width:120px;
-	padding-top:12px;
-	height:50px;
-	margin-left:-120px;
+	z-index: 777;
+	top:5px;
+	right:0;
+	width:150px;
+	padding:12px;
+	height:62px;
 	border-collapse:initial;
 	border:1px solid #7d8066;
 	background-image:url("~assets/images/lighten.png");
@@ -44,12 +43,20 @@
 	color:#000;
 	line-height:50px;
 }
-@media(min-width:900px){
+@media(min-width:30em){
 	.logo {
+		top:20px;
 		width:200px;
 		padding:12px;
 		height:80px;
-		left:50%;
+		right:50%;
+		margin-right:-90px;
 	}
 }
+@media(min-width:55em){
+	.logo {
+		top:100px;
+	}
+}
+
 </style>
