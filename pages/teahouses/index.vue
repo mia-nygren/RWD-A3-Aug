@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="text">
     <h1 class="title"> Our Tea Houses </h1>
     
@@ -11,7 +12,8 @@
     <p>We currently have three Tea Houses in Scandinavia:</p>
     <p> Choose a Tea House you want to visit </p>
     <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
-    <TeaHouses />
+  </div>
+  <TeaHouses />
   </div>
 </template>
 

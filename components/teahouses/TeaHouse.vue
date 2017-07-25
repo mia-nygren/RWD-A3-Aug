@@ -2,7 +2,7 @@
 <div v-bind:class="[{'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
   <div v-if="isMounted" class="content" > 
       <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase() }">
-      <h1> {{name}}</h1>
+      <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
       <img v-bind:src="getBackgroundImageURL(name +'.jpg')" />
       </div>
@@ -51,9 +51,11 @@ export default {
 <style scoped>
 
 .smallPreview, .largePreview {
-  margin:10px;
+  background-color:#FFF;
+  margin:0 auto;
+  margin-bottom:20px;
+  text-align: center;
   position:relative;
-  overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   height:25em;
@@ -69,11 +71,35 @@ export default {
   right:0;
   padding-top:100%;
 }
+.smallPreview:hover, .largePreview:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.smallPreview {
+  width:10em;
+  height:15em;
+  display:inline-block;
+}
+.smallPreview .content .imgWrapper  {
+  height:120px;
+}
 .content {
-  border:1px solid red;
+  
 }
 .content a  {
-  display:block;
+  display: block;
+  color:#7d8066; 
+}
+.content a .title {
+  color:#000;
+  line-height:2; 
+  padding:10px;
+  margin:0;
+}
+.smallPreview .title {
+   font-size:1.2em;
+}
+.content a:hover {
+  color:#000;
 }
 .linkUnderImage {
   line-height:2;
@@ -84,6 +110,12 @@ export default {
 }
 .content img {
   width:100%;
+}
+@media(min-width:90em) {
+  .smallPreview, .largePreview {
+    display:inline-block;
+    margin:20px;
+  }
 }
 </style>
 

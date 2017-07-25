@@ -7,7 +7,7 @@
     </div>
   <div v-if="showMounted">
         <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
-        <TeaHouses />
+        <TeaHouses v-bind:isThumbnail=true />
       </div>
     <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
     <div class="text">

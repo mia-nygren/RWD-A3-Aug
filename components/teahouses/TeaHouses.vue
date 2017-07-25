@@ -1,6 +1,8 @@
 <template>
-  <div>
-        <TeaHouse v-for="t in orderedTeaHouses" v-bind:name="t.name" />
+  <div class="teaHouseWrapper"> 
+    <div class="innerWrapper">
+        <TeaHouse v-for="t in orderedTeaHouses" v-bind:name="t.name" v-bind:isThumbnail="isThumbnail"/>
+        </div>
   </div>
 </template>
 
@@ -10,6 +12,13 @@ import citiesJSON from '~/static/data/cities.json'
 import TeaHouse from '~/components/teahouses/TeaHouse'
 export default {
   layout: 'default',
+  props: {
+    isThumbnail: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   components: {
     TeaHouse
   },
@@ -36,6 +45,17 @@ export default {
 </script>
 
 <style scoped>
+.teaHouseWrapper {
+  min-height:20em;
+  height:auto !important;
+  width:100%;
+  padding:20px 0 20px;
+  text-align: center;
+  display:block;
+}
+.innerWrapper {
+  margin:0 auto;
+}
 ul {
   padding-left:1.5em;
   text-decoration: none;
