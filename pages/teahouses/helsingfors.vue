@@ -1,6 +1,9 @@
 <template>
     <div class="text">
-      <h1 class="title"> Helsingfors</h1>
+      <h1 class="title"> {{name}}</h1>
+      <div class="imgWrapper">
+      <img src="~assets/images/teahouses/large/helsingfors.jpg" /> <!-- have this large as HEADERIMAGE instead! -->
+      </div>
       <h1 id="hours">Hours </h1>
         <p>Contact information here</p>
         <hours monday="10am-18pm" tuesday="10am-18pm" wednesday="10am-19pm" thursday="10am-19pm" friday="12am-21pm" sathurday="12am-21pm" sunday="Closed" />
@@ -50,6 +53,19 @@ export default {
   layout: 'teahouse',
   components: {
     Hours
+  },
+  data () {
+    return {
+      name: 'Helsingfors'
+    }
   }
 }
 </script>
+<style scoped>
+.imgWrapper img{
+  width:100%;
+}
+.imgWrapper {
+  width:100%;
+}
+</style>

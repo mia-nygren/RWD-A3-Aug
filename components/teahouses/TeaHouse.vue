@@ -4,7 +4,8 @@
       <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase() }">
       <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
-      <img v-bind:src="getBackgroundImageURL(name +'.jpg')" />
+      <img  v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail.jpg')" />
+      <img v-else v-bind:src="getBackgroundImageURL(large, name +'.jpg')" />
       </div>
       </nuxt-link>
       <nuxt-link class="linkUnderImage" v-bind:to="{ path: '/teahouses/' + name.toLowerCase(), hash:'menu' }">View Menu</nuxt-link>
@@ -16,7 +17,9 @@
 </template>
 
 <script>
-let images = require.context('../../assets/images/teahouses/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
+let imgLARGE = require.context('../../assets/images/teahouses/large/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
+let imgMEDIUM = require.context('../../assets/images/teahouses/medium/', false, /\.jpg$/)
+let imgSMALL = require.context('../../assets/images/teahouses/small/', false, /\.jpg$/)
 
 export default {
   props: {
@@ -33,12 +36,25 @@ export default {
   },
   data () {
     return {
-      isMounted: false
+      isMounted: false,
+      small: 'small',
+      medium: 'medium',
+      large: 'large'
     }
   },
   methods: {
-    getBackgroundImageURL (path) {
-      return images('./' + path.toLowerCase())
+    getBackgroundImageURL (size, path) {
+      path = path.toLowerCase()
+      switch (size) {
+        case 'small':
+          return imgSMALL('./' + path)
+        case 'medium':
+          return imgMEDIUM('./' + path)
+        case 'large':
+          return imgLARGE('./' + path)
+        default:
+          return imgMEDIUM('./' + path)
+      }
     }
   },
   mounted () {
@@ -75,8 +91,8 @@ export default {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .smallPreview {
-  width:10em;
-  height:15em;
+  width:12em;
+  height:17em;
   display:inline-block;
 }
 .smallPreview .content .imgWrapper  {

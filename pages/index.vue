@@ -1,14 +1,15 @@
 <template>
   <div class="mainContent">
-    <div class="text">
-      <h2> Our Tea houses </h2>
-      <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! We start our days by baking bread that you can have alongside with your cup of tea! </p>
-      <p>Currently we have three teahouses placed in Skandinavia.</p>
-    </div>
+    
   <div v-if="showMounted">
         <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
         <TeaHouses v-bind:isThumbnail=true />
       </div>
+      <div class="text">
+     <p>Currently we have three teahouses placed in Scandinavia.</p>
+      <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! We start our days by baking bread that you can have alongside with your cup of tea! </p>
+     
+    </div>
     <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
     <div class="text">
       <h2>Organic and fairtrade</h2>
