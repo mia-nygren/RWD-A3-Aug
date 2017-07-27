@@ -1,7 +1,6 @@
 <template>
   <section class="container">
-    <div>
-      <top/>        
+    <div>        
       <div class="main">
         <main>
           <nuxt/>        
@@ -13,12 +12,10 @@
 </template>
 
 <script>
-import Top from '~components/Top.vue'
 import Footerpart from '~components/Footer.vue'
 
 export default {
   components: {
-    Top,
     Footerpart
   }
 }

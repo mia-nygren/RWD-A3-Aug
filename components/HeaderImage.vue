@@ -1,12 +1,14 @@
 <template>
-  <div class="box"> 
-  <div class="content">
-    <div class="headlineText">
-      <h3>
-        Have a cup of tea that <br/> makes a difference! 
-      </h3>
-      <p> We make sure that all of our tea are fair trade! We also have organic food and drinks, all for a fair price! </p>
-    </div>
+  <div class="headerImageWrapper">
+    <div class="box">
+      <div class="content">
+        <div class="headlineText">
+          <h3>
+            {{ title }}
+          </h3>
+          <p>{{ text }} </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,8 +16,19 @@
 <script>
   export default {
     props: {
+      title: {
+        type: String,
+        required: false,
+        default: 'Have a cup of tea that makes a difference!'
+      },
+      text: {
+        type: String,
+        required: false,
+        default: 'We make sure that all of our tea are fair trade! We also have organic food and drinks, all for a fair price!'
+      },
       imageURL: {
         type: String,
+        required: false,
         default: ''
       }
     }
@@ -28,12 +41,12 @@
     background-image: url('../assets/images/headerPhoto.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    z-index:1;
+    height:100%;
   }
   .box:before {
     content:'';
     display:block;
-    padding-top:110% 
+    padding-top:50%; 
   } 
   .content{   
     position:  absolute;
@@ -60,6 +73,12 @@
     font-size:3em;
     width:15em; 
   }
+  .headerImageWrapper {
+  height:auto;
+  height:25em;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
   @media(min-width:18.6em) {
      .headlineText {
     font-size: .4em;
@@ -67,31 +86,26 @@
      }
       .headlineText p {
     font-size:2.5em;
-    text-align:center;
+    text-align:justify;
     width:auto;
   }
-   .box:before {
-    content:'';
-    display:block;
-    padding-top:80% 
+  .headerImageWrapper {
+    height: 30em;
   }
   }
   @media(min-width:40em) {
-  .box:before {
-    padding-top:45% 
-  }
+
   .headlineText {
     width:48em;
     font-size: .5em;
     line-height: 1.2;
     padding-top: 110px;
   }
+
   }
 
   @media(min-width:55em) {
-  .box:before {
-    padding-top:36em;
-  }
+
    .headlineText {
     font-size: .8em;
     line-height: 1.4;
@@ -101,17 +115,17 @@
     font-size:2em;
     margin-top:10px;
   }
+  .headerImageWrapper {
+    height:38em;
+    max-height:38em;
+  }
   }
  @media(min-width:62em) {
-  .box:before {
-    padding-top:36em;
-  }
- 
+
+  
   }
   @media(min-width:80em) {
-  .box:before {
-    padding-top:38em;
-  }
+
   }
 
 </style>

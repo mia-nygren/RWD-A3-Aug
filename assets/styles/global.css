@@ -63,11 +63,15 @@ h3 {
 { 
   min-height:100vh; 
   height:auto;
-  padding:20px 0;
   padding-bottom:50px;
   z-index: 0;
   background:#FFF;
   font-size:1.1em;
+}
+
+.mainContent {
+  padding-bottom:50px;
+  padding-top:30px;
 }
 
 /* Text är en klass som omringar den text som består av längre paragrafer och ska uppfylla god läsbarhet */  

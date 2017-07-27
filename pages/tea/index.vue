@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="mainContent">
     <div class="text">
-      <h1 class="title"> Tea Variaties </h1>
-      <h3> Organic and Fair trade </h3>
+      <h1 class="title centered"> Tea Variaties </h1>
       <p>
-        We have a lot of tea variaties! All of them are organic and fairtrade. </p>
+        We have a lot of tea variaties! All of them are fairtrade and organic. </p>
+        <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
         <h1> Choose a tea: </h1>
     <div id="searchBar" class="jsOnly">
       <div class="searchbarWrapper">
@@ -82,9 +82,20 @@ export default {
    margin-bottom:40px;
    margin-top:70px;
  }
-
+ .organic {
+      width:100px;
+      margin:0 auto;
+    }
  .searchbarWrapper {
   min-height:65px;
 }
-
+@media(min-width:30em) {
+  .mainQuestion h1 {
+  font-size:1.6em;
+}
+.organic {
+      width:200px;
+      margin-left:300px;
+    }
+}
 </style>

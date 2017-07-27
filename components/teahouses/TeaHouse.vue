@@ -93,7 +93,7 @@ export default {
 .smallPreview {
   width:12em;
   height:17em;
-  display:inline-block;
+  display:block;
 }
 .smallPreview .content .imgWrapper  {
   height:120px;
@@ -127,8 +127,19 @@ export default {
 .content img {
   width:100%;
 }
+@media(min-width:41em) {
+  .smallPreview {
+    display:inline-block;
+    margin:5px;
+  }
+}
+@media(min-width:48em) {
+  .smallPreview {
+    margin:20px;
+  }
+}
 @media(min-width:90em) {
-  .smallPreview, .largePreview {
+  .largePreview {
     display:inline-block;
     margin:20px;
   }

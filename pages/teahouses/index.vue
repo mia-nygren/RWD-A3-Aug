@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainContent">
   <div class="text">
     <h1 class="title"> Our Tea Houses </h1>
     
