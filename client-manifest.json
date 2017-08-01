@@ -4,7 +4,7 @@
     "img/yellow tea_large.7f7e351.jpg",
     "fonts/oxygen-v6-latin-300.ef5604d.eot",
     "fonts/oxygen-v6-latin-regular.e443e3d.eot",
-    "img/headerPhoto.bf2d43c.jpg",
+    "img/headerPhoto.6e2d23d.jpg",
     "fonts/oxygen-v6-latin-300.e919e71.ttf",
     "fonts/oxygen-v6-latin-300.9eaa685.woff",
     "fonts/oxygen-v6-latin-300.4986d40.woff2",
@@ -32,37 +32,37 @@
     "img/stockholm_thumbnail.2b4f7a9.jpg",
     "img/fairTrade.495bea6.svg",
     "img/pexels-photo.b2257d0.jpg",
-    "0.nuxt.bundle.365e4b9a4e20eb0d41e5.js",
-    "1.nuxt.bundle.050ace7fbffef86937ee.js",
-    "2.nuxt.bundle.97545297d7b37cf82b9f.js",
-    "3.nuxt.bundle.462ccb1c382902f22dce.js",
-    "4.nuxt.bundle.73b1e8bac8678de99cbe.js",
-    "5.nuxt.bundle.1beff8f7c6d566fabfba.js",
-    "6.nuxt.bundle.95d834aed32e21422826.js",
-    "7.nuxt.bundle.eddb624fdd419f212b48.js",
-    "8.nuxt.bundle.08723dff11f6f2c3ace7.js",
-    "9.nuxt.bundle.12d28eea53eaa3df56f8.js",
-    "vendor.bundle.445a9aead6a01adcf6d9.js",
-    "nuxt.bundle.a92d346b07ddf5b6b814.js",
-    "manifest.b7778667765bdd7ebed0.js",
+    "0.nuxt.bundle.cfea8c38e37e8f1d0531.js",
+    "1.nuxt.bundle.7c2c977828e32105048d.js",
+    "2.nuxt.bundle.1e78e352a2651eb1d8d0.js",
+    "3.nuxt.bundle.316c0534ea0a56df5c92.js",
+    "4.nuxt.bundle.184b49665b14ffeb78e7.js",
+    "5.nuxt.bundle.743ba1501332372ad1d6.js",
+    "6.nuxt.bundle.be9c735875c9d390b908.js",
+    "7.nuxt.bundle.2b6e9f29333d6715273d.js",
+    "8.nuxt.bundle.b449fe6ad3bb736ad53d.js",
+    "9.nuxt.bundle.6c44f5849fac3b260a44.js",
+    "vendor.bundle.42c5c4109fe8c4184a59.js",
+    "nuxt.bundle.9916567d88de64660b66.js",
+    "manifest.096d08ae35f723d01221.js",
     "index.html"
   ],
   "initial": [
-    "manifest.b7778667765bdd7ebed0.js",
-    "vendor.bundle.445a9aead6a01adcf6d9.js",
-    "nuxt.bundle.a92d346b07ddf5b6b814.js"
+    "manifest.096d08ae35f723d01221.js",
+    "vendor.bundle.42c5c4109fe8c4184a59.js",
+    "nuxt.bundle.9916567d88de64660b66.js"
   ],
   "async": [
-    "0.nuxt.bundle.365e4b9a4e20eb0d41e5.js",
-    "1.nuxt.bundle.050ace7fbffef86937ee.js",
-    "2.nuxt.bundle.97545297d7b37cf82b9f.js",
-    "3.nuxt.bundle.462ccb1c382902f22dce.js",
-    "4.nuxt.bundle.73b1e8bac8678de99cbe.js",
-    "5.nuxt.bundle.1beff8f7c6d566fabfba.js",
-    "6.nuxt.bundle.95d834aed32e21422826.js",
-    "7.nuxt.bundle.eddb624fdd419f212b48.js",
-    "8.nuxt.bundle.08723dff11f6f2c3ace7.js",
-    "9.nuxt.bundle.12d28eea53eaa3df56f8.js"
+    "0.nuxt.bundle.cfea8c38e37e8f1d0531.js",
+    "1.nuxt.bundle.7c2c977828e32105048d.js",
+    "2.nuxt.bundle.1e78e352a2651eb1d8d0.js",
+    "3.nuxt.bundle.316c0534ea0a56df5c92.js",
+    "4.nuxt.bundle.184b49665b14ffeb78e7.js",
+    "5.nuxt.bundle.743ba1501332372ad1d6.js",
+    "6.nuxt.bundle.be9c735875c9d390b908.js",
+    "7.nuxt.bundle.2b6e9f29333d6715273d.js",
+    "8.nuxt.bundle.b449fe6ad3bb736ad53d.js",
+    "9.nuxt.bundle.6c44f5849fac3b260a44.js"
   ],
   "modules": {
     "36981477": [
@@ -152,10 +152,10 @@
     "8a1aa03e": [
       41
     ],
-    "60478b1e": [
+    "8b35e7f4": [
       41
     ],
-    "8b35e7f4": [
+    "60478b1e": [
       41
     ],
     "03ffe1f6": [
@@ -395,6 +395,22 @@
       41
     ],
     "168f2dae": [
+      42,
+      1,
+      22,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "d7a9a8ea": [
       42,
       1,
       22,
@@ -1418,10 +1434,6 @@
       26,
       27,
       28
-    ],
-    "d7a9a8ea": [
-      33,
-      14
     ],
     "1b867d10": [
       36,
