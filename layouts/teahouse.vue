@@ -3,7 +3,9 @@
    <Header />   
       <div class="main">
           <main>
-            <nuxt/><!-- Här hamnar allt sid-innehåll -->        
+            <div class="mainContent">
+            <nuxt/><!-- Här hamnar allt sid-innehåll -->   
+            </div>     
           </main>
         </div>
     <Footerpart/>

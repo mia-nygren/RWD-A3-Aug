@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Category name='Green Tea'/>
+        <Category name='White Tea'/>
     </div>
 
 </template>
@@ -14,4 +14,3 @@ export default {
   }
 }
 </script>
-

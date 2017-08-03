@@ -40,7 +40,7 @@ export default {
 }
 
 .notComplete {
-  color:red;
+  color:grey;
 }
 
 @media (min-width:30em) {

@@ -11,7 +11,6 @@
       <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! We start our days by baking bread that you can have alongside with your cup of tea! </p>
     </div>
     <div class="organicWrapper">
-      
       <div class="text">
         <img class="leaf" src="~assets/images/leaf.svg" alt="leaf">
         <h2>Organic and fairtrade</h2>
@@ -19,9 +18,12 @@
         <p>The people we buy our ingredients and teas from are getting a fair price for their products and trades. You can choose between a vast selection of quality organic and fairtraide tea to have with your meal, or just have a delicious cup of tea on it's own.</p>
       </div>
     </div>
-    <h2 class="text"> Our Tea Varaities </h2>
+    <h2 class="centered greyText"> Our Tea Varaities </h2>
     <div class="lighten categoriesWrapper">
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:is-thumbnail="isThumbnail" />
+    </div>
+    <div class="text">
+      Öppettider should be here as a component....same as in the page hours.vue
     </div>
   </div>
 </template>
@@ -70,11 +72,9 @@ export default {
     }
   }
 }
-
 </script>
 
 <style>
-
   .leaf {
     width:13em;
     float:right;
@@ -99,7 +99,7 @@ export default {
   background-color:#F1EDE9;
   padding:5em 0;
 }
-.startWrapper {
+.greyText {
   color:#7d8066;
 }
 

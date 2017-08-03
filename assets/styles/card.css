@@ -1,4 +1,8 @@
 /* Här är css som är gemensam för alla 'kort' på webbsidan - de som är fyrkantiga med bilder i med andra ord */ 
+
+
+
+
 .smallPreview, .largePreview {
   background-color:#FFF;
   margin:0 auto;
@@ -29,9 +33,7 @@
   height:13em;
   display:block;
 }
- .smallPreview, .largePreview {
-  background-color:grey;
- }
+
 .card .imgWrapper {
   position:relative;
   height:20em;
@@ -82,6 +84,7 @@
 }
 .content .imgWrapper {
   overflow:hidden;
+  background-color:grey;
 }
 .content img {
   width:100%;

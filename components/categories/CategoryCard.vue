@@ -34,9 +34,6 @@ export default {
   },
   data () {
     return {
-      summary: null,
-      info: null,
-      isMounted: false,
       cleanSlug,
       small,
       medium,
@@ -60,6 +57,8 @@ export default {
 <style src="~assets/styles/card.css"></style>
  
 <style >
+/* Här överskrider jag den css som finns i assets/styles/card.css 
+(har skrivit card.css själv, men det är bättre att ha en gemensam fil för delad css) */
 
 </style>
 

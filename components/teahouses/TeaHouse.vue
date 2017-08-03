@@ -1,11 +1,11 @@
 <template>
-<div v-bind:class="[{'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
+<div v-bind:class="['card', {'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
   <div class="content teahouse" > 
       <nuxt-link v-bind:to="{ path: '/teahouses/' + cleanSlug(name) }">
       <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
-      <img  v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail.jpg')"  />
-      <img v-else v-bind:src="getBackgroundImageURL(large, name +'.jpg')" />
+      <img v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail', '.jpg')"  />
+      <img v-else v-bind:src="getBackgroundImageURL(large, name, '.jpg')" />
       </div>
       </nuxt-link>
       <div class="linksUnderImage">
@@ -18,10 +18,8 @@
 </template>
 
 <script>
-import {cleanSlug} from '~assets/js/shared.js'
-let imgLARGE = require.context('../../assets/images/teahouses/large/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
-let imgMEDIUM = require.context('../../assets/images/teahouses/medium/', false, /\.jpg$/)
-let imgSMALL = require.context('../../assets/images/teahouses/small/', false, /\.jpg$/)
+import {cleanSlug, small, medium, large} from '~assets/js/shared.js'
+let images = require.context('../../assets/images/teahouses/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 
 export default {
   props: {
@@ -38,74 +36,44 @@ export default {
   },
   data () {
     return {
-      small: 'small',
-      medium: 'medium',
-      large: 'large',
-      cleanSlug
+      cleanSlug,
+      small,
+      medium,
+      large
     }
   },
   methods: {
     cleanSlug (slug) {
       return slug.toLowerCase().split(' ').join('')
     },
-    getBackgroundImageURL (size, path) {
-      path = path.toLowerCase()
+    getBackgroundImageURL (size, name, fileEnding) {
+      let path = name.toLowerCase() + '_' + size + fileEnding
       try {
-        switch (size) {
-          case 'small':
-            return imgSMALL('./' + path)
-          case 'medium':
-            return imgMEDIUM('./' + path)
-          case 'large':
-            return imgLARGE('./' + path)
-          default:
-            return imgMEDIUM('./' + path)
-        }
+        let image = images('./' + path)
+        return image
       } catch (error) {
         console.log('could not find the image at path: ' + path)
-        console.log(error)
       }
     }
   }
 }
 /* v-bind:style="{ backgroundImage: `url('${imgURL}')` }" */
 </script>
-
+<style src="~assets/styles/card.css"></style>
 <style scoped>
 
-.smallPreview, .largePreview {
-  background-color:#FFF;
-  margin:0 auto;
-  margin-bottom:20px;
-  text-align: center;
-  position:relative;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+/* Här överskrider jag den css som finns i assets/styles/card.css 
+(har skrivit card.css själv, men det är bättre att ha en gemensam fil för delad css) */
+.largePreview {
   height:25em;
   width:25em;
 }
-.smallPreview:before, .largePreview:before {
-  content:'';
-  position:absolute;
-  display:block;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  padding-top:100%;
-}
-.smallPreview:hover, .largePreview:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
 .smallPreview {
-  width:12em;
   height:17em;
-  display:block;
 }
 .smallPreview .content .imgWrapper  {
   height:120px;
 }
-
 .teahouse a  {
   display: block;
   color:#7d8066; 
@@ -121,91 +89,18 @@ export default {
   color:#000;
   line-height:2; 
   padding:10px;
-  margin:0;
-}
-.smallPreview .title {
-   font-size:1.2em;
-}
-.content a:hover {
-  color:#000;
-}
-  .smallPreview, .largePreview {
-  background-color:#FFF;
-  margin:0 auto;
-  margin-bottom:20px;
-  text-align: center;
-  position:relative;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  height:25em;
-  width:25em;
-}
-.smallPreview:before, .largePreview:before {
-  content:'';
-  position:absolute;
-  display:block;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  padding-top:100%;
-}
-.smallPreview:hover, .largePreview:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.smallPreview {
-  width:12em;
-  height:17em;
-  display:block;
-}
-.smallPreview .content .imgWrapper  {
-  height:120px;
-}
-.content {
-  
 }
 .content a  {
   display: block;
   color:#7d8066; 
 }
 .content a .title {
-  color:#000;
   line-height:2; 
   padding:10px;
-  margin:0;
 }
-.smallPreview .title {
-   font-size:1.2em;
-}
-.content a:hover {
-  color:#000;
-}
-.linkUnderImage {
-  line-height:2;
-}
+
 .content .imgWrapper {
   height:250px;
-  overflow:hidden;
-}
-.content img {
-  width:100%;
-}
-@media(min-width:41em) {
-  .smallPreview {
-    display:inline-block;
-    margin:5px;
-  }
-}
-@media(min-width:48em) {
-  .smallPreview {
-    margin:20px;
-  }
-}
-@media(min-width:90em) {
-  .largePreview {
-    display:inline-block;
-    margin:20px;
-  }
 }
 </style>
 

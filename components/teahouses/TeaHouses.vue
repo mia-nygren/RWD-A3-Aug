@@ -10,6 +10,7 @@
 import _ from 'lodash'
 import citiesJSON from '~/static/data/cities.json'
 import TeaHouse from '~/components/teahouses/TeaHouse'
+
 export default {
   layout: 'default',
   props: {
@@ -22,11 +23,6 @@ export default {
   components: {
     TeaHouse
   },
-  data () {
-    return {
-      isMounted: false
-    }
-  },
   methods: {
     jsonToArray (jsonObj) {  // https://stackoverflow.com/a/30153369/4178864
       return jsonObj[Object.keys(jsonObj)[0]]
@@ -37,9 +33,6 @@ export default {
       // Ordnar json så det blir rätt sorterad i bokstavsordning
       return _.orderBy(this.jsonToArray(citiesJSON), 'name')
     }
-  },
-  mounted () {
-    this.isMounted = true
   }
 }
 </script>

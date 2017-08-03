@@ -1,11 +1,9 @@
 <template>
     <div class="text">
       <h1 class="title"> {{ getTitle }}</h1>
-      <div class="imgWrapper">
-      <img src="~assets/images/teahouses/large/helsingfors.jpg" /> <!-- have this large as HEADERIMAGE instead! -->
-      </div>
+      
       <h1 id="hours">Hours </h1>
-        <p>Contact information here</p>
+        <p>Opening hours here...todo use table!</p>
         <hours monday="10am-18pm" tuesday="10am-18pm" wednesday="10am-19pm" thursday="10am-19pm" friday="12am-21pm" sathurday="12am-21pm" sunday="Closed" />
          ...maybe shoudl've had a teahouse component with title and main image?!
 
@@ -13,6 +11,11 @@
         <Menu v-bind:drinks="drinks" v-bind:brunch="brunch"/>
         <h1 id="contact" name="contact" >Contact us </h1>
         <p>Contact information here</p>
+        <div class="imgWrapper">
+      <img src="~assets/images/teahouses/large/helsingfors.jpg" /> <!-- have this large as HEADERIMAGE instead! -->
+      </div>
+      <h1 id="contact" name="contact" >Find us </h1>
+      <p> Google map?! </p>
     </div>
 </template>
 
