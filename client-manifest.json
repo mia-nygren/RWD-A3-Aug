@@ -31,34 +31,34 @@
     "img/stockholm.4cfdeac.jpg",
     "img/stockholm_thumbnail.2b4f7a9.jpg",
     "img/fairTrade.495bea6.svg",
-    "img/pexels-photo.b2257d0.jpg",
-    "0.nuxt.bundle.1f79c8dd74f42d662168.js",
-    "1.nuxt.bundle.7c2c977828e32105048d.js",
-    "2.nuxt.bundle.1e78e352a2651eb1d8d0.js",
-    "3.nuxt.bundle.316c0534ea0a56df5c92.js",
+    "img/helsingfors_large.6cdf84c.jpg",
+    "0.nuxt.bundle.51c98b07ad92cf06635d.js",
+    "1.nuxt.bundle.1f869600497cfa76a555.js",
+    "2.nuxt.bundle.bfa423c18f9473d80ad4.js",
+    "3.nuxt.bundle.322a7d804d49b3260afa.js",
     "4.nuxt.bundle.59f310955c0a8c5aae0f.js",
-    "5.nuxt.bundle.743ba1501332372ad1d6.js",
+    "5.nuxt.bundle.81349b671b53e48a0b1f.js",
     "6.nuxt.bundle.be9c735875c9d390b908.js",
     "7.nuxt.bundle.2b6e9f29333d6715273d.js",
     "8.nuxt.bundle.b449fe6ad3bb736ad53d.js",
     "9.nuxt.bundle.6c44f5849fac3b260a44.js",
     "vendor.bundle.42c5c4109fe8c4184a59.js",
-    "nuxt.bundle.73fdd526606589b0caa2.js",
-    "manifest.d74a0c1e6a7bebac816a.js",
+    "nuxt.bundle.807822d764171b7ec35e.js",
+    "manifest.3cecd560268d32c77de3.js",
     "index.html"
   ],
   "initial": [
-    "manifest.d74a0c1e6a7bebac816a.js",
+    "manifest.3cecd560268d32c77de3.js",
     "vendor.bundle.42c5c4109fe8c4184a59.js",
-    "nuxt.bundle.73fdd526606589b0caa2.js"
+    "nuxt.bundle.807822d764171b7ec35e.js"
   ],
   "async": [
-    "0.nuxt.bundle.1f79c8dd74f42d662168.js",
-    "1.nuxt.bundle.7c2c977828e32105048d.js",
-    "2.nuxt.bundle.1e78e352a2651eb1d8d0.js",
-    "3.nuxt.bundle.316c0534ea0a56df5c92.js",
+    "0.nuxt.bundle.51c98b07ad92cf06635d.js",
+    "1.nuxt.bundle.1f869600497cfa76a555.js",
+    "2.nuxt.bundle.bfa423c18f9473d80ad4.js",
+    "3.nuxt.bundle.322a7d804d49b3260afa.js",
     "4.nuxt.bundle.59f310955c0a8c5aae0f.js",
-    "5.nuxt.bundle.743ba1501332372ad1d6.js",
+    "5.nuxt.bundle.81349b671b53e48a0b1f.js",
     "6.nuxt.bundle.be9c735875c9d390b908.js",
     "7.nuxt.bundle.2b6e9f29333d6715273d.js",
     "8.nuxt.bundle.b449fe6ad3bb736ad53d.js",
@@ -1435,7 +1435,7 @@
       27,
       28
     ],
-    "1b867d10": [
+    "5f02aa6f": [
       36,
       13,
       30
