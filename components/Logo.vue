@@ -16,11 +16,12 @@
 	position:relative;
 	margin:0 auto;
 	height:100%;
+	margin-left:-35px;
 }
 .logo:before {
 	content:'';
 	display:block;
-	padding-top:100%;
+	padding-top:5em;
 }
 .logoContent {	
 	position:absolute;

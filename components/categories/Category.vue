@@ -10,47 +10,13 @@
 </template>
 
 <script>
-import information from '~static/data/information'
+
 export default {
   props: {
     name: {
       type: String,
-      required: true
-    }
-  },
-  data () {
-    return {
-      summary: null,
-      info: null,
-      image: null
-    }
-  },
-  methods: {
-    limitCharacters: (text, chars) => {
-      let str = text
-      if (str !== null & str !== '' & str !== undefined) {
-        if (str.length > chars) {
-          str = str.substring(0, chars)
-        }
-      } else {
-        str = ''
-      }
-      return str
-    }
-  },
-  mounted () {
-    this.info = information.filter((item) => {
-      return item.category === this.name
-    })
-    try {
-      if (this.info) {
-        this.info = this.info[0].info // todo - make clearer
-        this.summary = this.limitCharacters(this.info, 150)
-      } else {
-        this.info = ''
-      }
-    } catch (e) {
-        // no info
+      required: true,
+      default: ''
     }
   }
 }

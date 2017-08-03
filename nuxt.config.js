@@ -21,6 +21,9 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
+    script: [
+      { src: 'https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise' }
+    ],
     noscript: [
       { innerHTML: '<style> .jsOnly { display: none } </style>' }
     ],

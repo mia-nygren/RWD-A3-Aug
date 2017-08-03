@@ -59,12 +59,13 @@ h3 {
 }
 
 /* Main är huvudinnehållet på sidorna */
+
 .main
 { 
+  position: relative;
   min-height:100vh; 
   height:auto;
   padding-bottom:50px;
-  z-index: 0;
   background:#FFF;
   font-size:1.1em;
 }
@@ -72,6 +73,10 @@ h3 {
 .mainContent {
   padding-bottom:50px;
   padding-top:30px;
+}
+
+.lighten {
+  background-image: url('../images/lighten.png');
 }
 
 /* Text är en klass som omringar den text som består av längre paragrafer och ska uppfylla god läsbarhet */  

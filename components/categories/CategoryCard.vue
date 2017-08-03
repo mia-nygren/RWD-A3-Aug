@@ -1,90 +1,65 @@
 <template>
-    <div v-if="isMounted" v-bind:class="['card', {'smallCard': isThumbnail, 'bigCard': !isThumbnail}]">
-        <nuxt-link class="readMoreIMG" v-bind:to="{ path: '/tea/' + cleanSlug(name) }">
-        <h2> {{ name }} </h2>
-        <div v-bind:class="['teaImage', {'thumbNail' : isThumbnail , bigImage : !isThumbnail }]">
-         <!-- Här bör en bild hamna -->
-        </div> </nuxt-link> 
-    </div>
+    <div v-bind:class="['card', wrapperClass, {'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
+  <div class="content" > 
+      <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">
+      <h1 class="title"> {{name}}</h1>
+      <div class="imgWrapper">
+      <img  v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail', '.jpg')" />
+      <img v-else v-bind:src="getBackgroundImageURL(large, name, '.jpg')" />
+      </div>
+      </nuxt-link>
+  </div>
+</div>
 </template>
 
 <script>
+import {cleanSlug, small, medium, large} from '~assets/js/shared.js'
+let images = require.context('../../assets/images/tea/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 export default {
   props: {
     name: {
       type: String,
       required: true
     },
-    imageURL: {
-      type: String,
-      required: false
-    },
     isThumbnail: {
       type: Boolean,
       required: false,
       default: false
+    },
+    wrapperClass: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data () {
     return {
       summary: null,
       info: null,
-      isMounted: false
+      isMounted: false,
+      cleanSlug,
+      small,
+      medium,
+      large
     }
   },
   methods: {
-    cleanSlug (slug) {
-      return slug.toLowerCase().split(' ').join('')
+    getBackgroundImageURL (size, name, fileEnding) {
+      let path = name.toLowerCase() + '_' + size + fileEnding
+      try {
+        let image = images('./' + path)
+        return image
+      } catch (error) {
+        console.log('could not find the image at path: ' + path)
+      }
     }
-  },
-  mounted () {
-    this.isMounted = true
   }
 }
 </script>
 
-<style>
- .card {
-  text-align: left;
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  margin: 2em 0;
-  margin-bottom:4em;
-  height:auto!important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
- }
-
-.card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.card h2 {
-  padding:20px;
-}
-.bigCard {
-  min-height:30em;
-}
-
-.smallCard {
-  width:12em;
-  min-height:10em;
-}
-.teaImage {
-    height:200px!important;
-    background:#f2f0ef;
-    cursor:pointer;
-}
-.teaImage .readMoreIMG {
-  display:block;
-}
-
-@media (min-width:30em) {
-    .bigCard {
-        width:30em;
-        margin:2em;
-    }
-}
+<style src="~assets/styles/card.css"></style>
+ 
+<style >
 
 </style>
 
