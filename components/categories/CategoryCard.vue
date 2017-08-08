@@ -4,8 +4,8 @@
       <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">
       <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
-      <img  v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail', '.jpg')" />
-      <img v-else v-bind:src="getBackgroundImageURL(large, name, '.jpg')" />
+      <img  v-if="isThumbnail" v-bind:src="getImageURL(large, name +'_thumbnail', '.jpg')" />
+      <img v-else v-bind:src="getImageURL(large, name, '.jpg')" />
       </div>
       </nuxt-link>
   </div>
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    getBackgroundImageURL (size, name, fileEnding) {
+    getImageURL (size, name, fileEnding) {
       let path = name.toLowerCase() + '_' + size + fileEnding
       try {
         let image = images('./' + path)

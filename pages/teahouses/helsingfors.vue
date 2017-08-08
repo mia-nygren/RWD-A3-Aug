@@ -1,39 +1,42 @@
 <template>
     <div class="text">
       <h1 class="title"> {{ getTitle }}</h1>
-      
-      <h1 id="hours">Hours </h1>
-        <p>Opening hours here...todo use table!</p>
-        <hours monday="10am-18pm" tuesday="10am-18pm" wednesday="10am-19pm" thursday="10am-19pm" friday="12am-21pm" sathurday="12am-21pm" sunday="Closed" />
-         ...maybe shoudl've had a teahouse component with title and main image?!
-
+      ...maybe shoudl've had a teahouse component with title and main image?!
+      <h2 id="hours">Opening Hours </h2>
+        <hours />
         <h1 id="menu" name="menu" >MENU</h1>
         <Menu v-bind:drinks="drinks" v-bind:brunch="brunch"/>
-        <h1 id="contact" name="contact" >Contact us </h1>
-        <p>Contact information here</p>
+
         <div class="imgWrapper">
-      <img src="~assets/images/teahouses/large/helsingfors.jpg" /> <!-- have this large as HEADERIMAGE instead! -->
+        <src-set :get-image-src="getImageSrc" file-name="carrotcake" />
+       <!-- <img v-bind:src="getImageURL(medium, carrotcake, '.jpg')"
+        v-bind:srcset="getImageURL(small, carrotcake, '.jpg') + ' 350w' + ',' + getImageURL(medium, carrotcake , '.jpg') + 
+        ' 600w' + ',' + getImageURL(large, carrotcake, '.jpg') + ' 850w' + ',' + getImageURL(large +'-hd', carrotcake, '.jpg') + ' 1300w'" sizes="(max-width: 40em) 100vw, 60vw"/>  -->
       </div>
-      <h1 id="contact" name="contact" >Find us </h1>
+      <h1 id="contact" name="contact" >Contact us </h1>
+        <p>Contact information here</p>
+      <h1 id="find us" name="find us" >Find us </h1>
       <p> Google map?! </p>
     </div>
 </template>
 
 <script>
-import Hours from '~components/teahouses/Hours'
+import Hours from '~components/teahouses/opening-hours/helsingfors'
 import Menu from '~components/teahouses/Menu'
-import headerImage from '~assets/images/teahouses/helsingfors_large.jpg'
-
+import SrcSet from '~components/images/SrcSet'
+import headerImage from '~assets/images/teahouses/helsingfors-large.jpg'
+let images = require.context('../../assets/images/teahouses/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 let title = 'Helsingfors'
 
 export default {
   layout: 'teahouse',
   components: {
     Hours,
-    Menu
+    Menu,
+    SrcSet
   },
-  fetch ({ store, params }) {
-    store.commit('changeHeaderImageURL', headerImage)
+  fetch ({ store, params }) {  // Fetch is called before the component renders, and can make changes to the store
+    store.commit('changeHeaderImageURL', headerImage) // in this case I change the header image and title
     store.commit('changeHeaderTitle', title)
   },
   computed: {
@@ -53,6 +56,17 @@ export default {
         {name: 'Toast', items: [{name: 'Avocado and chillitoast', price: '75'}]}
       ]
     }
+  },
+  methods: {
+    getImageSrc (size, name, fileEnding) {
+      let path = name.toLowerCase() + '-' + size + fileEnding
+      try {
+        let image = images('./' + path)
+        return image
+      } catch (error) {
+        console.log('could not find the image at path: ' + path)
+      }
+    }
   }
 }
 </script>
@@ -62,5 +76,12 @@ export default {
 }
 .imgWrapper {
   width:100%;
+  margin:1em 0 1em;
+}
+h2 {
+  font-size: 1.2em;
+  line-height:1.4;
+  padding-top:1.2em;
+  padding-bottom:1.2em;
 }
 </style>

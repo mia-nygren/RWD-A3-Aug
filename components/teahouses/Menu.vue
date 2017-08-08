@@ -1,12 +1,11 @@
 <template>
-  <div v-if="isMounted">
+  <div class="wrapper">
     <!-- th = table header , tr = table row , td = table data -->
     <!-- Genom att loopa med 'v-for' så skapas meny-tabellen dynamisk utefter vad för data som ges,
    jag slipper därför att skriva massa tablerows och tabledata för alla saker som finns på menyn -->
     <inner-table title="Drinks" v-bind:items="drinks"/>
     <inner-table title="Brunch" v-bind:items="brunch"/>
     <inner-table title="Lunch" v-bind:items="lunch"/>
-   
   </div>
 </template>
 
@@ -49,11 +48,6 @@ export default {
   components: {
     InnerTable
   },
-  data () {
-    return {
-      isMounted: false
-    }
-  },
   methods: {
     getCategoryId (category) {
       return this.menu.categories.indexOf(category)
@@ -70,9 +64,6 @@ export default {
     orderItems (items, name) {
       return _.orderBy(items, name)
     }
-  },
-  mounted () {
-    this.isMounted = true
   }
 }
 </script>
@@ -92,7 +83,10 @@ dl {margin:0; padding:0;}
 dl dt{font-weight:bold; float:left;}
 dl dd{margin:0 0 2px 90px; padding:0;}
 */
-
+.wrapper {
+  border: 3px double #ccc;
+  padding:.5em;
+}
 .item {
   background:green;
   width:70%;

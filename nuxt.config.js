@@ -46,13 +46,15 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        loaders: [{
+        loaders: [
+        {
           loader:'url-loader',
           query: {
             limit: 1500, // 1.5KO
             name: 'img/[name].[hash:7].[ext]'
           }
-        },{
+        },
+        {
           loader: 'image-webpack-loader',
           query: {
             mozjpeg: {
