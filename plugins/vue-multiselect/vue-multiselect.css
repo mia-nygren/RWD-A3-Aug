@@ -1,3 +1,7 @@
+
+/* -- OBS!!!
+      vue-multiselect.min.css är CSS som jag INTE har skrivit själv, det används för sökfältet som finns på en av sidorna - https://monterail.github.io/vue-multiselect/ -- */
+
 fieldset[disabled] .multiselect {
   pointer-events: none;
 }

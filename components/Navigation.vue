@@ -53,7 +53,8 @@
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '~assets/styles/colors.scss';  // Importerar enbart variables och fördubblar inte CSS
 
 .navigation {
   position: absolute;
@@ -82,12 +83,12 @@
 .navigation .nuxt-link-active,
 .navigation .nuxt-link-exact-active {
   color: #FFF;
-  background-color: #7d8066;
+  background-color: $medium-grey;
   font-weight: 700;
 }
 
 .navigation .nuxt-link-active:hover {
-  background: #7d8066;
+  background-color: $medium-grey;
 }
 
 .navigation li {
@@ -106,9 +107,6 @@
   clip: rect(0, 0, 0, 0);
 }
 
-#menuButton {
- 
-}
 
 /* -- Menyknapp ( Hamburgermenu )--*/
 

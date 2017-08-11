@@ -1,7 +1,7 @@
 <template>
   <div class="teaHouseWrapper"> 
     <div class="innerWrapper">
-        <tea-house v-for="t in orderedTeaHouses" v-bind:name="t.name" v-bind:is-thumbnail="isThumbnail" v-bind:key="t.name"/>
+        <tea-house v-for="t in orderedTeaHouses" v-bind:name="t.name" :is-thumbnail="isThumbnail" v-bind:key="t.name"/>
         </div>
   </div>
 </template>

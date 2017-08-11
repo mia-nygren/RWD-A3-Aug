@@ -1,15 +1,15 @@
 <template>
- <div class="header">
-      <header>
-        <navigation/>
-        <!-- Header Image: Renderas bara utifall en bild är vald för denna -->
-        <header-image />  
-        <!-- Logotype -->
+  <div class="header">
+    <header>
+      <navigation/>
+      <!-- Header Image: Renderas bara utifall en bild är vald för denna -->
+      <header-image />
+      <!-- Logotype -->
       <div class="logoWrapper lighten">
         <logo/>
-       </div> 
-      </header>  
- </div> 
+      </div>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -30,7 +30,8 @@ export default {
 .logoWrapper {
   position:relative;
   z-index: 777;
-  padding:10px;
+  padding:5px;
+  padding-top:7px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
 }
 </style>

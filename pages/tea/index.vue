@@ -3,25 +3,21 @@
     <div class="text">
       <h1 class="title centered"> Tea Variaties </h1>
       <p>
-        We have a lot of tea variaties! All of them are fairtrade and organic. </p>
-        <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
-        <h1> Choose a tea: </h1>
-    <div id="searchBar" class="jsOnly">
-      <div class="searchbarWrapper">
-      <search v-if="showMounted" v-bind:optionsArray="orderedCategoriesSearch" placeholderText="Search tea" />
+        We have a lot of tea variaties! All of them are fairtrade and organic. Lorem ipsum dolor sit amet, vim offendit gubergren ullamcorper ea, 
+        nostrud elaboraret ullamcorper ad vim, deleniti insolens complectitur sea ne. Sint luptatum vim ad, has no laboramus vituperata. Vel nemore propriae eu.</p>
+      <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
+      <h1> Choose a tea: </h1>
+      <div id="searchBar" class="jsOnly">
+        <div class="searchbarWrapper">
+          <search v-if="showMounted" v-bind:optionsArray="orderedCategoriesSearch" placeholderText="Search tea" />
+        </div>
       </div>
-    </div>
-    
+  
     </div>
     <div class="categoriesWrapper">
       <div class="lighten">
-      <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:isThumbnail="false"/>
+        <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:isThumbnail="false" />
       </div>
-    </div>
-    <div class="text">
-      <h3> Tack för din insats! </h3>
-      <p>När du sorterar och återvinner dina sopor så
-        <span class="lenght">hjälper du till med att förbät</span>tra vår miljö. Det behövs fler som du! </p>
     </div>
   </div>
 </template>
@@ -71,28 +67,28 @@ export default {
 </script>
 
 <style scoped>
-.lenght {
-  color:red;
-}
+  .mainContent {
+    padding-bottom:0;
+  }
  .categoriesWrapper {
    width:100%;
    background-image: url('../../assets/images/headerPhoto.jpg'); 
    background-size:cover; 
    text-align:center;
-   margin-bottom:40px;
-   margin-top:70px;
+   margin:70px 0 0 0;
+   padding:0;
+   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+ }
+ .lighten {
+   height:100%;
+   padding:50px 0;
  }
  .organic {
       width:100px;
       margin:0 auto;
     }
- .searchbarWrapper {
-  min-height:65px;
-}
+
 @media(min-width:30em) {
-  .mainQuestion h1 {
-  font-size:1.6em;
-}
 .organic {
       width:200px;
       margin-left:300px;

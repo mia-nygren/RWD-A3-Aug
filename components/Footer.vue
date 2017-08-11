@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
     <footer>
-      <div class="footerBackground" aria-hidden="true"></div>
       <div class="footerBase">
         <div class="textWrapper">
           <p class="copyright"> &copy; 2017  Tea2Go</p>
@@ -12,17 +11,13 @@
   </div>
 </template>
 <style scoped>
-.footerBackground {
-     /* background-image: url('../assets/images/footerBackground.png'); */
-     height:90px;
-     margin-top:-15px; 
- }
+
  .footerBase {
    width:100%;
    padding: 10px 20px;
-   background-color: #FFF;
-   height:80px;
-   border-top:5px solid #6fa9a2;
+   background-color: #F1EDE9;
+   background-image: url('../assets/images/grunge-background-seamless.jpg');
+   height:200px;
  }
  .footerBase p {
    display:block;

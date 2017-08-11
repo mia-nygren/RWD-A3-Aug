@@ -4,8 +4,9 @@
       <nuxt-link v-bind:to="{ path: '/teahouses/' + cleanSlug(name) }">
       <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
-      <img v-if="isThumbnail" v-bind:src="getBackgroundImageURL(large, name +'_thumbnail', '.jpg')"  />
-      <img v-else v-bind:src="getBackgroundImageURL(large, name, '.jpg')" />
+      <!-- src-set is a component I made that can be reused for img elements - have a look inside components/images/SrcSet.vue to understand more -->
+      <src-set v-if="isThumbnail" :get-image-src="getImageSrc" :file-name="name +'-thumbnail'" :alt="name" />
+      <src-set v-else :get-image-src="getImageSrc" :file-name="name" :alt="name" />
       </div>
       </nuxt-link>
       <div class="linksUnderImage">
@@ -20,6 +21,7 @@
 <script>
 import {cleanSlug, small, medium, large} from '~assets/js/shared.js'
 let images = require.context('../../assets/images/teahouses/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
+import SrcSet from '~components/images/SrcSet'
 
 export default {
   props: {
@@ -34,6 +36,9 @@ export default {
       default: false
     }
   },
+  components: {
+    SrcSet
+  },
   data () {
     return {
       cleanSlug,
@@ -46,8 +51,8 @@ export default {
     cleanSlug (slug) {
       return slug.toLowerCase().split(' ').join('')
     },
-    getBackgroundImageURL (size, name, fileEnding) {
-      let path = name.toLowerCase() + '_' + size + fileEnding
+    getImageSrc (size, name, fileEnding) {
+      let path = name.toLowerCase() + '-' + size + fileEnding
       try {
         let image = images('./' + path)
         return image

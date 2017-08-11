@@ -99,7 +99,6 @@ imageURL: {
     text-align: center;
     overflow: hidden
 }
-
   .headlineText {
     position:absolute;
     top:0;

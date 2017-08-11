@@ -1,23 +1,24 @@
 <template>
-    <div class="text">
-      <h1 class="title"> {{ getTitle }}</h1>
-      ...maybe shoudl've had a teahouse component with title and main image?!
-      <h2 id="hours">Opening Hours </h2>
-        <hours />
-        <h1 id="menu" name="menu" >MENU</h1>
-        <Menu v-bind:drinks="drinks" v-bind:brunch="brunch"/>
-
-        <div class="imgWrapper">
-        <src-set :get-image-src="getImageSrc" file-name="carrotcake" />
-       <!-- <img v-bind:src="getImageURL(medium, carrotcake, '.jpg')"
-        v-bind:srcset="getImageURL(small, carrotcake, '.jpg') + ' 350w' + ',' + getImageURL(medium, carrotcake , '.jpg') + 
-        ' 600w' + ',' + getImageURL(large, carrotcake, '.jpg') + ' 850w' + ',' + getImageURL(large +'-hd', carrotcake, '.jpg') + ' 1300w'" sizes="(max-width: 40em) 100vw, 60vw"/>  -->
-      </div>
-      <h1 id="contact" name="contact" >Contact us </h1>
-        <p>Contact information here</p>
-      <h1 id="find us" name="find us" >Find us </h1>
-      <p> Google map?! </p>
+  <div class="text">
+    <h1 class="title"> {{ getTitle }}</h1>
+    ...maybe shoudl've had a teahouse component with title and main image?!
+    
+    <h1 id="menu" name="menu">MENU</h1>
+    <Menu v-bind:drinks="drinks" v-bind:brunch="brunch" />
+  
+    <div class="imgWrapper">
+      <src-set :get-image-src="getImageSrc" file-name="carrotcake" />
+      <!-- <img v-bind:src="getImageURL(medium, carrotcake, '.jpg')"
+          v-bind:srcset="getImageURL(small, carrotcake, '.jpg') + ' 350w' + ',' + getImageURL(medium, carrotcake , '.jpg') + 
+          ' 600w' + ',' + getImageURL(large, carrotcake, '.jpg') + ' 850w' + ',' + getImageURL(large +'-hd', carrotcake, '.jpg') + ' 1300w'" sizes="(max-width: 40em) 100vw, 60vw"/>  -->
     </div>
+    <h2 id="hours">Opening Hours </h2>
+    <hours />
+    <h1 id="contact" name="contact">Contact us </h1>
+    <p>Contact information here</p>
+    <h1 id="find us" name="find us">Find us </h1>
+    <p> Google map?! </p>
+  </div>
 </template>
 
 <script>

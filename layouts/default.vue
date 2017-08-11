@@ -13,7 +13,7 @@
 <script>
 import Header from '~components/Header'
 import Footerpart from '~components/Footer'
-import headerI from '~/assets/images/headerPhoto.jpg'
+import headerPhoto from '~/assets/images/headerPhoto.jpg'
 
 export default {
   components: {
@@ -21,13 +21,12 @@ export default {
     Footerpart
   },
   mounted () {
-    this.$store.commit('changeHeaderImageURL', headerI)
+    this.$store.commit('changeHeaderImageURL', headerPhoto)
   }
 }
 </script>
 
 <style>
-/* den mesta CSS för default.vue är definierad i assets/styles/global.css eftersom den ska gälla för alla sidor */
-
+/* CSS för default.vue är definierad i assets/styles/global.scss eftersom den ska gälla för alla sidor */
 </style>
 

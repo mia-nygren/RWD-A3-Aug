@@ -2,11 +2,12 @@
     <div v-bind:class="['card', wrapperClass, {'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
   <div class="content" > 
       <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">
-      <h1 class="title"> {{name}}</h1>
+      
       <div class="imgWrapper">
       <img  v-if="isThumbnail" v-bind:src="getImageURL(large, name +'_thumbnail', '.jpg')" />
       <img v-else v-bind:src="getImageURL(large, name, '.jpg')" />
       </div>
+      <h1 class="title centered"> {{name}}</h1>
       </nuxt-link>
   </div>
 </div>
@@ -56,9 +57,16 @@ export default {
 
 <style src="~assets/styles/card.css"></style>
  
-<style >
+<style scoped>
 /* Här överskrider jag den css som finns i assets/styles/card.css 
 (har skrivit card.css själv, men det är bättre att ha en gemensam fil för delad css) */
+.smallPreview h1{
+  color:#6F6459;
+  font-size:1em;
+}
+.largePreview {
+  height:24em;
+}
 
 </style>
 

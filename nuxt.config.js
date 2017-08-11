@@ -21,9 +21,6 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      { src: 'https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise' }
-    ],
     noscript: [
       { innerHTML: '<style> .jsOnly { display: none } </style>' }
     ],
@@ -75,7 +72,7 @@ module.exports = {
         exclude: '/assets/fonts/'
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/, // Fonts
         loader: 'url-loader',
         query: {
           limit: 1000, // 1 KO
@@ -104,6 +101,10 @@ module.exports = {
     // CSS för Google Fonts Oxygen
     '~assets/styles/font.css',
     // CSS som gäller för alla sidor
-    '~assets/styles/global.css'
+    // '~assets/styles/global.css',
+    // Sass files in the project
+    { src: '~assets/styles/colors.scss', lang: 'scss' },
+    { src: '~assets/styles/global.scss', lang: 'scss' } // scss instead of sass
+    
   ]
 }

@@ -74,12 +74,12 @@ export default {
 <style scoped>
 /* CSS utifrån exemplet: Formating a data list http://www.the-art-of-web.com/css/format-dl/ */ 
  dl {
-   padding:1em 0;
-    max-width:250px;
+   padding-bottom:1em;
+   display:block;
   }
   dd, dt {
-  padding:1em;
-  border-bottom:1px solid #000
+  padding:1em 0.1em 0.2em 0.1em;
+  border-bottom:1px solid #C7BAAD;
   }
   dt {
     font-weight: 600;
@@ -87,7 +87,7 @@ export default {
     clear: left;
     width: 100px;
     font-weight: bold;
-    color: green;
+    color: #927C67;
     ;
   }
   dt:after {

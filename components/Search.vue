@@ -1,14 +1,14 @@
 <template>
-  <div class="searchBar">
-    <div>
-      <multiselect v-model="value" v-bind:options="optionsArray" :searchable="true" 
-      :close-on-select="true" :show-labels="false" v-bind:placeholder="placeholderText" @select="valueSelected"></multiselect>
-    </div>
-    <div class="searchResult" v-if="displayResults && displayRes()">
-      <category-card v-bind:name="result" v-bind:isThumbnail="true" />
+  <div class="wrapper">
+    <div class="searchBar">
+        <multiselect v-model="value" v-bind:options="optionsArray" :searchable="true" :close-on-select="true" :show-labels="false" v-bind:placeholder="placeholderText" @select="valueSelected"></multiselect>
+      <div class="searchResult centered" v-if="displayResults && displayRes()">
+        <category-card v-bind:name="result" v-bind:isThumbnail="true" />
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 import CategoryCard from '~components/categories/CategoryCard.vue'
 import Multiselect from 'vue-multiselect'
@@ -21,7 +21,7 @@ export default {
   props: {
     optionsArray: {
       type: Array,
-      default: ['Listan kunde inte hämtas...']
+      default: ['Could not find the items...']
     },
     placeholderText: {
       type: String,
@@ -48,7 +48,6 @@ export default {
   },
   methods: {
     valueSelected (value) {
-      console.log('RUUUNS VALUE SELECTED!!!!')
       console.log(value)
       if (value !== '' && value !== null) {
         this.displayResults = true
@@ -73,41 +72,56 @@ export default {
     this.match = true
   }
 }
-// Här jag jag avänt mig av vue-select
-// https://sagalbot.github.io/vue-select/
+// Här jag jag avänt mig av vue-multiselect
+// https://monterail.github.io/vue-multiselect/
 </script>
 <!-- OBS!!! vue-multiselect.min.css är CSS som jag inte har skrivit själv - https://monterail.github.io/vue-multiselect/ -->
 <style src="../plugins/vue-multiselect/vue-multiselect.css"></style>
 <style>
+
 /* Här överskriver jag den CSS som jag inte vill ha! */
-.multiselect__tag, .multiselect__option--highlight,  .multiselect__option--highlight:after , .multiselect__option--selected.multiselect__option--highlight  {
-  background:#7d8066;
-  background-color:#7d8066;
+
+.multiselect__tag,
+.multiselect__option--highlight,
+.multiselect__option--highlight:after,
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #7d8066;
+  background-color: #7d8066;
 }
 
-.searchBar {
-  max-width:10em;
-  margin:0 auto!important;
+.multiselect {
+  float: left;
 }
 
 /* Css för egen kod, såsom visning av sökresultat */
-.searchResult {
- margin:0 auto;
- height:auto;
- margin-left:-40px; /* sista-minuten css vet inte varför det hamnar som det gör.... TODO */
+
+.wrapper {
+  text-align: left;
 }
+
+.searchBar {
+  max-width: 10em;
+}
+
+.searchResult {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
 @media(min-width:30em) {
   .searchBar {
-    max-width:20em;
+    max-width: 20em;
   }
   .v-select {
     width: 25em;
   }
   .searchResult {
-  margin:0 auto;
-  height:auto;
-  margin-left:-100px; /* sista-minuten css vet inte varför det hamnar som det gör.... TODO */
-}
+    margin: 0 auto;
+    height: auto;
+    margin-left: -100px;
+    /* sista-minuten css vet inte varför det hamnar som det gör.... TODO */
+  }
 }
 </style>
 

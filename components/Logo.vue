@@ -2,7 +2,7 @@
 	<div class="logo">
 		<div class="logoContent">
 			<div class="imgWrapper">
-			<img src="~assets/images/logo2.png" alt="Logotyp">
+			<img src="~assets/images/logo.svg" alt="Logotyp">
 			</div>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 .logo:before {
 	content:'';
 	display:block;
-	padding-top:5em;
+	padding-top:3em;
 }
 .logoContent {	
 	position:absolute;
@@ -37,5 +37,11 @@
 	height:90%;
 	display:block;
 	margin:0 auto;
+}
+
+@media(min-width:30em) {
+  .logo:before {
+	padding-top:5em;
+	}
 }
 </style>

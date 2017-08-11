@@ -33,7 +33,9 @@
   height:13em;
   display:block;
 }
-
+.largePreview {
+  margin-bottom:30px;
+}
 .card .imgWrapper {
   position:relative;
   height:20em;
@@ -41,7 +43,6 @@
 }
 .card .imgWrapper:before {
   content:'';
-  border:1px solid white;
   position:absolute;
   display:block;
   top:0;
@@ -84,7 +85,7 @@
 }
 .content .imgWrapper {
   overflow:hidden;
-  background-color:grey;
+  background-color:#D1D1D1;
 }
 .content img {
   width:100%;

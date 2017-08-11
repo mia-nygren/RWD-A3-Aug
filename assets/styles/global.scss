@@ -1,8 +1,9 @@
 /* Detta är den css som appliceras och gäller för alla sidor som använder sig av denna layout, default.vue */
 /* Först ligger styles som är aktuella för mindre skärmstorlekar */
+@import '~assets/styles/colors.scss';
 
-*, *:before, *:after  
-{
+*, *:before, *:after
+{ 
   box-sizing: border-box; /* Detta för att border inte ska påverka storleken och det blir en mer konsekvent layout */ 
   margin: 0;
 }
@@ -41,10 +42,12 @@ ul {padding-left:0;}
 
 /* Rubriker / Headings */ 
 
+.title, .text h2 {
+  color:$medium-grey;
+}
 .title {  /* titel är sidornas huvudrubrik - för relevant återkoppling */
   font-size: 1.6em;
   font-weight: 700; 
-  color:#7d8066;
   max-width:25em;
   margin:0 auto;
   margin-bottom:20px;
@@ -59,9 +62,9 @@ h3 {
  }
 
 .text h2 {
-  color:#7d8066;
   padding-top:15px;
 }
+
 
 /* Main är huvudinnehållet på sidorna */
 
@@ -69,14 +72,14 @@ h3 {
 { 
   position: relative;
   min-height:100vh; 
-  height:auto;
-  padding-bottom:50px;
+  height:auto !important;
   background:#FFF;
   font-size:1.1em;
+  overflow: hidden;
 }
 
 .mainContent {
-  padding:50px 0;
+  padding:50px 0; 
 }
 
 .lighten {
@@ -101,9 +104,10 @@ h3 {
 }
 
 .centered {
-  text-align:center;
+  text-align:center !important;
   margin:0 auto;
 }
+
 @media(min-width:23.5em) {
   .title {
     font-size: 1.5em;
@@ -115,6 +119,9 @@ h3 {
     margin:0 auto;
     text-align: justify;
     text-justify: inter-word; /* IE */    /* https://www.w3schools.com/cssref/css3_pr_text-justify.asp */
+  }
+  .text h1, h2, h3, h4 {
+    text-align:left;
   }
 }
 @media(min-width:38.8em) {
