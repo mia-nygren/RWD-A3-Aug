@@ -1,9 +1,9 @@
 <template>
-<div>
-    <h2> Opening Hours </h2>
-    <helsingfors :display-title="true" />
-    <stockholm :display-title="true" />
-    <oslo :display-title="true" />
+<div class="openingHours">
+    <h2 class="centered "> Opening Hours </h2>
+    <helsingfors :display-title="displayTitle" />
+    <stockholm :display-title="displayTitle" />
+    <oslo :display-title="displayTitle" />
 </div>
 </template>
 
@@ -13,6 +13,13 @@ import stockholm from '~components/teahouses/opening-hours/stockholm'
 import oslo from '~components/teahouses/opening-hours/oslo'
 
 export default {
+  props: {
+    displayTitle: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
+  },
   components: {
     helsingfors,
     oslo,
@@ -21,11 +28,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '~assets/styles/colors.scss';
+
+.openingHours {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom:20px;
+}
+
 .wrapper {
-  padding:2em;
-  display:inline-block;
-  width:17em;
-  border:1px solid #C7BAAD;
+  margin: 0 auto;
+  padding: 2em;
+  width: 30em;
+}
+
+.openingHours h2 {
+  padding: 1.4em;
+}
+
+@media (min-width:65em) {
+  .wrapper {
+    margin: 20px;
+    display: inline-block;
+    width: 17em;
+    border: 3px solid #C7BAAD;
+    background-color: $light-grey;
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="centered startWrapper">
       <h2 class="centered">Our teahouses</h2>
       <p>We have three teahouses placed in Scandinavia.</p>
-      <!-- <p>state = {{ $store.state }}</p> -->
+      <!-- <p>state = {{ $store.state }}</p> TODO -->
     </div>
       <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
       <tea-houses :is-thumbnail="true" />
@@ -35,6 +35,7 @@ import teaJSON from '~static/data/tea.json'
 import Search from '~components/Search'
 import TeaHouses from '~components/teahouses/TeaHouses'
 import OpeningHours from '~components/teahouses/opening-hours/OpeningHours'
+let images = require.context('../assets/images/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 
 // Här definerar jag titel och text som ska vara i headerimage på startsidan
 let title = 'Have a cup of tea that makes a difference!'
@@ -60,29 +61,63 @@ export default {
   methods: {
     jsonToArray (jsonObj) {  // https://stackoverflow.com/a/30153369/4178864
       return jsonObj[Object.keys(jsonObj)[0]]
+    },
+    getBackground (fileName) {
+      return 'url(\'' + this.getImageURL('medium', fileName, '.jpg') + '\');'
+    },
+    getImageURL (size, name, fileEnding) {
+      let path = name.toLowerCase() + '-' + size + fileEnding
+      try {
+        let image = images('./' + path)
+        return image
+      } catch (error) {
+        console.log('could not find the image at path: ' + path)
+      }
     }
   },
   computed: {
-    extractName: function (obj) {
-      return obj.name
-    },
     orderedCategories: function () {
       // Ordna json så det blir rätt i bokstavsordning och ta ut bara namnen
       return _.orderBy(this.jsonToArray(teaJSON), 'name')
-    },
-    getTitle () {
-      return this.title
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped >
+@import '~assets/styles/colors.scss';  // Importerar enbart variables och fördubblar inte CSS
+
+.boxy {
+  position:relative;
+}
+.boxy:before {
+  content:'';
+  display:block;
+  padding-top:30%;
+}
+.content {
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  // background-image:url($imagePATH);
+
+}
+.test-pic {
+  float: left;
+  width: 250px;
+  @media screen and (max-width: 320px) {
+    width: 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    float: none;
+  }
+}
 
 .main {
   padding-bottom: 50px;
 }
-
 .leaf {
   width: 10em;
   float: right;
@@ -121,5 +156,4 @@ export default {
     margin-left: 4em;
   }
 }
-
 </style>

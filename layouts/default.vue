@@ -1,11 +1,9 @@
 <template>
   <section class="container">
    <Header />   
-      <div class="main">
-          <main>
+          <main class="main">
             <nuxt/><!-- Här hamnar allt sid-innehåll -->        
           </main>
-        </div>
     <Footerpart/>
   </section>
 </template>

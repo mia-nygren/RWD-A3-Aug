@@ -64,11 +64,11 @@ export default {
 }
 /* v-bind:style="{ backgroundImage: `url('${imgURL}')` }" */
 </script>
-<style src="~assets/styles/card.css"></style>
+<style src="~assets/styles/card.scss" lang="scss"></style>
 <style scoped>
 
-/* Här överskrider jag den css som finns i assets/styles/card.css 
-(har skrivit card.css själv, men det är bättre att ha en gemensam fil för delad css) */
+/* Här överskrider jag den css som finns i assets/styles/card.scss 
+(har skrivit card.scss själv, men det är bättre att ha en gemensam fil för delad css) */
 .largePreview {
   height:25em;
   width:25em;

@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <h2 v-if="displayTitle">Helsingfors</h2>
+    <h2 class="hoursTitle" v-if="displayTitle">Helsingfors</h2>
     <hours monday="10am-18pm" tuesday="10am-18pm" wednesday="10am-19pm" thursday="10am-19pm" friday="12am-21pm" sathurday="12am-21pm" sunday="Closed" />
-    </div>
+  </div>
 </template>
 
 <script>

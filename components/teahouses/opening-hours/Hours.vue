@@ -88,7 +88,7 @@ export default {
     width: 100px;
     font-weight: bold;
     color: #927C67;
-    ;
+    text-align: left;
   }
   dt:after {
     content: ":";

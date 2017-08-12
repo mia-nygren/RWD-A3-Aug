@@ -2,7 +2,12 @@
   <div class="headerImageWrapper">
     <div class="box">
       <div class="content headerImage">
-        <img v-bind:src="backgroundImageUrl" alt="background Image"/>
+        <picture>
+          <source media="(min-width: 18em)" v-bind:srcset="getHeaderImageURL" » type="image/jpg">
+          <source media="(min-width: 18em)" v-bind:srcset="getHeaderImageURL">
+          <img :srcset="getHeaderImageURL" alt="Header Image">
+        </picture>
+        <!-- <img v-bind:src="getHeaderImageURL" alt="background Image" /> -->
         <div class="headlineText">
           <h3>
             {{ getTitle }}
@@ -29,7 +34,7 @@
       }
     },
     computed: {
-      backgroundImageUrl () {
+      getHeaderImageURL () {
         return this.$store.state.headerImageURL
       },
       getTitle () { // om titel inte skickas med till componenten som en prop så hämtar den default-titel från filen store/index.js
@@ -40,28 +45,6 @@
       }
     }
   }
-/*
-    watch: {
-      '$store.state.headerImageURL': 'setHeaderImage' // detta gör att den kan ändra bilden för header beroende på vilken sida man är på
-    }
-imageURL: {
-        type: String,
-        required: false,
-        default: require('~assets/images/headerPhoto.jpg')
-      }
- computed: {
-      backgroundImageUrl: {
-        // getter
-        get: function () {
-          return 'url(\'' + this.$store.state.headerImageURL + '\')'
-        },
-        // setter
-        set: function (newValue) {
-          this.$store.dispatch('updateHeaderImage', { firstName: newValue })
-        }
-      }
-    }
-      */
 </script>
 
 <style>

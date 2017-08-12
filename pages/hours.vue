@@ -1,22 +1,19 @@
 <template>
   <div class="mainContent">
-    <div class="text">
-      <h1 class="title"> Opening Hours </h1>
-  
-      <helsingfors />
-
-      <p>
-        Welcome! </p>
-    </div>
+    <opening-hours :display-title="true" />
+      <h3 class="centered"> Welcome! </h3>
   </div>
 </template>
 
 <script>
-import helsingfors from '~components/teahouses/opening-hours/helsingfors'
+import OpeningHours from '~components/teahouses/opening-hours/OpeningHours'
 
 export default {
   components: {
-    helsingfors
+    OpeningHours
   }
 }
 </script>
+<style>
+
+</style>

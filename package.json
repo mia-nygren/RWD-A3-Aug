@@ -5,6 +5,7 @@
   "author": "mia-nygren <marianygren88@gmail.com>",
   "private": true,
   "dependencies": {
+    "aphrodite": "^1.2.3",
     "nuxt": "latest",
     "vue-clickaway": "^2.1.0",
     "vue-multiselect": "^2.0.0-beta.15"

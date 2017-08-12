@@ -26,6 +26,10 @@ html
   font-size:100%;
   overflow-x: hidden;
 }
+ /* To secure correct behavior in older browsers: https://www.w3schools.com/html/html5_browsers.asp*/
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
 
 /* Ul och paragraph*/ 
 
@@ -107,6 +111,12 @@ h3 {
   text-align:center !important;
   margin:0 auto;
 }
+
+.hoursTitle {
+  color:$logo-green !important;
+  font-size:1.2em;
+  padding-bottom:.8em;
+  }
 
 @media(min-width:23.5em) {
   .title {
