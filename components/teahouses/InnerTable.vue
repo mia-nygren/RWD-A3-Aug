@@ -1,6 +1,6 @@
 <template>
 <div v-if="items.length > 0">
- <h2 v-if="title !== null">{{title}}</h2>
+ <h2 class="menuTitle" v-if="title !== null">{{title}}</h2>
     <table v-for="item in items" v-bind:key="item">
       <thead>
        <tr>
@@ -45,4 +45,39 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-bottom: 1px solid red;
+}
+
+th {
+  padding: 1em 0 .5em 0;
+  text-align: left;
+}
+
+tr {
+  width: 100%;
+}
+
+.text .menuTitle {
+  padding-top: 1.2em !important;
+  font-size: 1.2em !important;
+}
+
+.item {
+  min-width: 50%;
+  text-align: left;
+}
+
+.price {
+  min-width: 3em;
+  text-align: right;
+}
+
+</style>
 

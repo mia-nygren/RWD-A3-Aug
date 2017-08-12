@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <header>
+    <header class="header">
       <navigation/>
       <!-- Header Image: Renderas bara utifall en bild är vald för denna -->
       <header-image />

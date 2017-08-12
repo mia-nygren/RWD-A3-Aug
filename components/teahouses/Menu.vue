@@ -4,6 +4,7 @@
     <!-- Genom att loopa med 'v-for' så skapas meny-tabellen dynamisk utefter vad för data som ges,
    jag slipper därför att skriva massa tablerows och tabledata för alla saker som finns på menyn -->
     <inner-table title="Drinks" v-bind:items="drinks"/>
+    <inner-table title="Breakfast" v-bind:items="breakfast" />
     <inner-table title="Brunch" v-bind:items="brunch"/>
     <inner-table title="Lunch" v-bind:items="lunch"/>
   </div>
@@ -69,30 +70,10 @@ export default {
 </script>
 
 <style scoped>
-table {  
-    width: 100%; 
-    border-collapse: collapse; 
-    border-spacing: 0;
-}
-tr { 
-width:100%;
-}
-/*
-td, th { border: 1px solid #CCC; } 
-dl {margin:0; padding:0;}
-dl dt{font-weight:bold; float:left;}
-dl dd{margin:0 0 2px 90px; padding:0;}
-*/
+
 .wrapper {
-  border: 3px double #ccc;
-  padding:.5em;
+  padding-top:0;
+  padding-bottom:4em;
 }
-.item {
-  background:green;
-  width:70%;
-}
-.price {
-  width:50%;
-  background:red;
-}
+
 </style>

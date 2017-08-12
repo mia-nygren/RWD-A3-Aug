@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-   <Header />   
+   <header-component />   
       <div class="main">
           <main>
             <div class="mainContent">
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import Header from '~components/Header'
+import HeaderComponent from '~components/HeaderComponent'
 import Footerpart from '~components/Footer'
 
 export default {
   components: {
-    Header,
+    HeaderComponent,
     Footerpart
   }
 }

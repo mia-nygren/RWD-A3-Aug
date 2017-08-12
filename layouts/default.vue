@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-   <Header />   
+   <header-component />   
           <main class="main">
             <nuxt/><!-- Här hamnar allt sid-innehåll -->        
           </main>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import Header from '~components/Header'
+import HeaderComponent from '~components/HeaderComponent'
 import Footerpart from '~components/Footer'
 import headerPhoto from '~/assets/images/headerPhoto.jpg'
 
 export default {
   components: {
-    Header,
+    HeaderComponent,
     Footerpart
   },
   mounted () {
