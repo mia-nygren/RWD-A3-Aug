@@ -2,9 +2,9 @@
   <div class="headerImageWrapper">
     <div class="box">
       <div class="content headerImage">
-        <picture>
-          <source media="(min-width: 18em)" v-bind:srcset="getHeaderImageURL" » type="image/jpg">
-          <source media="(min-width: 18em)" v-bind:srcset="getHeaderImageURL">
+        <picture id="headerImage" class="picture">
+          <source :srcset="getHeaderImageURL" media="(min-width: 18em)" >
+          <source :srcset="getHeaderImageURL" media="(min-width: 18em)" >
           <img :srcset="getHeaderImageURL" alt="Header Image">
         </picture>
         <!-- <img v-bind:src="getHeaderImageURL" alt="background Image" /> -->
@@ -20,34 +20,62 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      title: {
-        type: String,
-        required: false,
-        default: null
-      },
-      text: {
-        type: String,
-        required: false,
-        default: null
-      }
+import { mapGetters } from 'vuex'
+let picturefill = null
+if (process.BROWSER_BUILD) {
+  picturefill = require('picturefill')
+}
+export default {
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: null
     },
-    computed: {
-      getHeaderImageURL () {
-        return this.$store.state.headerImageURL
-      },
-      getTitle () { // om titel inte skickas med till componenten som en prop så hämtar den default-titel från filen store/index.js
-        return (this.title !== null) ? this.title : this.$store.state.headerTitle
-      },
-      getText () {
-        return (this.text !== null) ? this.text : this.$store.state.headerText
-      }
+    text: {
+      type: String,
+      required: false,
+      default: null
     }
+  },
+  watch: {
+    headerIMG: function () {
+      // this watches the store state and runs every time the image in the header is changed.
+      if (process.BROWSER_BUILD) {
+        // For some reason it does not work properly with IE....
+        if (typeof picturefill === 'function') {
+          picturefill({
+            reevaluate: true,
+            elements: [document.getElementById('headerImage')]
+          })
+        }
+      }
+      return
+    }
+  },
+  computed: {
+    getHeaderImageURL () {
+      return this.$store.state.headerImageURL
+    },
+    getTitle () { // om titel inte skickas med till componenten som en prop så hämtar den default-titel från filen store/index.js
+      return (this.title !== null) ? this.title : this.$store.state.headerTitle
+    },
+    getText () {
+      return (this.text !== null) ? this.text : this.$store.state.headerText
+    },
+    ...mapGetters({
+      headerIMG: 'headerImageURL'
+    })
   }
+}
 </script>
 
 <style>
+.picture {
+  display:block;
+  height:100%;
+  background:lightgray;
+}
   .headerImageWrapper {
     position:relative;
     z-index:1;
@@ -110,12 +138,12 @@
 
 
   @media(min-width:18.6em) {
-     .headlineText {
-    font-size: .4em;
-    text-align:center;
+     .headlineText h3 {
+      text-align:center!important;
      }
       .headlineText p {
     font-size:2.5em;
+    text-align:center!important;
     text-align:justify;
     width:auto;
   }

@@ -28,6 +28,11 @@ const store = () => {
       nuxtServerInit ({ commit }) {
         console.log('nuxtServerInit dispatch')
       }
+    },
+    getters: {
+      headerImageURL: state => {
+        return state.headerImageURL
+      }
     }
   })
 }

@@ -2,14 +2,18 @@
 <div v-if="items.length > 0">
  <h2 v-if="title !== null">{{title}}</h2>
     <table v-for="item in items" v-bind:key="item">
-      <tr>
+      <thead>
+       <tr>
         <th scope="col" colspan="2">{{capitalize(item.name)}}</th>
         <!-- drink kan vara till exempel juice -->
       </tr>
+    </thead>
+    <tbody>
       <tr v-for="i in item.items" v-bind:key="i.name">
         <td class='item'>{{i.name}} </td>
         <td class='price'>{{i.price}} {{currency}}</td> 
       </tr>
+      </tbody>
     </table>
   </div>
 </template>
