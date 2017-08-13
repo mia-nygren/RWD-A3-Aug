@@ -71,7 +71,7 @@
     "img/pexels-photo.b2257d0.jpg",
     "img/seamlessBK.aa27510.jpg",
     "0.nuxt.bundle.2ed6a018e24f41ddc8d6.js",
-    "1.nuxt.bundle.b4475a0eccfe016f41f4.js",
+    "1.nuxt.bundle.f82007a8d25c1f661fad.js",
     "2.nuxt.bundle.4d443cfbe674865bc728.js",
     "3.nuxt.bundle.1fe6f072c4d7c9a4e117.js",
     "4.nuxt.bundle.4bdfc3e97e6e1d6793b8.js",
@@ -86,17 +86,17 @@
     "13.nuxt.bundle.45aab5c91891cc0379ec.js",
     "vendor.bundle.86f1f07b480d8b70a23e.js",
     "nuxt.bundle.01fae011794aa42e566b.js",
-    "manifest.8215328e752ef6b68cd7.js",
+    "manifest.789c583366aeaf501c14.js",
     "index.html"
   ],
   "initial": [
-    "manifest.8215328e752ef6b68cd7.js",
+    "manifest.789c583366aeaf501c14.js",
     "vendor.bundle.86f1f07b480d8b70a23e.js",
     "nuxt.bundle.01fae011794aa42e566b.js"
   ],
   "async": [
     "0.nuxt.bundle.2ed6a018e24f41ddc8d6.js",
-    "1.nuxt.bundle.b4475a0eccfe016f41f4.js",
+    "1.nuxt.bundle.f82007a8d25c1f661fad.js",
     "2.nuxt.bundle.4d443cfbe674865bc728.js",
     "3.nuxt.bundle.1fe6f072c4d7c9a4e117.js",
     "4.nuxt.bundle.4bdfc3e97e6e1d6793b8.js",
