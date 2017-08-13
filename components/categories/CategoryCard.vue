@@ -60,13 +60,36 @@ export default {
 <style scoped>
 /* Här överskrider jag den css som finns i assets/styles/card.scss 
 (har skrivit card.scss själv, men det är bättre att ha en gemensam fil för delad css) */
-.smallPreview h1{
-  color:#6F6459;
-  font-size:1em;
-}
-.largePreview {
-  height:24em;
+
+.smallPreview h1 {
+  color: #6F6459;
+  font-size: 1em;
 }
 
+.largePreview {
+  height: 14em;
+  width: 15em;
+}
+
+.largePreview .imgWrapper {
+  height: 11em;
+}
+
+.largePreview h1 {
+  line-height: 2.5em;
+}
+
+@media(min-width:30em) {
+  .largePreview {
+    height: 24em;
+    width: 25em;
+  }
+  .largePreview .imgWrapper {
+    height: 20em;
+  }
+  .largePreview h1 {
+    line-height: 3em;
+  }
+}
 </style>
 

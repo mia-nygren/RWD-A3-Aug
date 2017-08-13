@@ -1,6 +1,6 @@
 <template>
 <div class="openingHours">
-    <h2 class="centered "> Opening Hours </h2>
+    <h2 class="title centered borderBottom"> Opening Hours </h2>
     <helsingfors :display-title="displayTitle" />
     <stockholm :display-title="displayTitle" />
     <oslo :display-title="displayTitle" />
@@ -44,7 +44,9 @@ export default {
 }
 
 .openingHours h2 {
-  padding: 1.4em;
+  padding: 1em;
+  padding-bottom:.5em;
+  margin-bottom:2em;
 }
 
 @media (min-width:65em) {
@@ -52,8 +54,11 @@ export default {
     margin: 20px;
     display: inline-block;
     width: 17em;
-    border: 3px solid #C7BAAD;
-    background-color: $light-grey;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.12), 0 1px 8px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .wrapper:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 22px rgba(0,0,0,0.22);
   }
 }
 </style>

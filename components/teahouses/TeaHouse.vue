@@ -10,7 +10,7 @@
       </div>
       </nuxt-link>
       <div class="linksUnderImage">
-      <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase(), hash:'menu' }">View Menu</nuxt-link>
+      <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase(), hash:'food' }">View Menu</nuxt-link>
       <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase(), hash:'hours' }">Opening Hours</nuxt-link>
       <nuxt-link v-bind:to="{ path: '/teahouses/' + name.toLowerCase(), hash:'contact' }">Contact Us</nuxt-link>
       </div>  
@@ -70,8 +70,8 @@ export default {
 /* Här överskrider jag den css som finns i assets/styles/card.scss 
 (har skrivit card.scss själv, men det är bättre att ha en gemensam fil för delad css) */
 .largePreview {
-  height:25em;
-  width:25em;
+  height:17em;
+  width:13.3em;
 }
 .smallPreview {
   height:17em;
@@ -89,23 +89,42 @@ export default {
 }
 .linksUnderImage a {
   height:2em;
+  line-height:2;
+  font-size: .9em;
 }
-.content a .title {
+.largePreview a .title {
   color:#000;
   line-height:2; 
+  height: 2.5em;
   padding:10px;
 }
 .content a  {
   display: block;
   color:#7d8066; 
 }
-.content a .title {
-  line-height:2; 
-  padding:10px;
-}
 
 .content .imgWrapper {
+  height:125px;
+}
+
+/* --- */
+
+
+@media(min-width:30em) {
+  .largePreview {
+    height:27em;
+    width:25em;
+  }
+  .content .imgWrapper {
   height:250px;
+}
+  .largePreview a .title {
+  font-size: 2em;
+  height: 2.5em;
+}
+  .largePreview .linksUnderImage a {
+    font-size: 1.1em;
+  }
 }
 </style>
 

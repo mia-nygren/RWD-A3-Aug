@@ -9,7 +9,8 @@
     "nuxt": "latest",
     "picturefill": "^3.0.2",
     "vue-clickaway": "^2.1.0",
-    "vue-multiselect": "^2.0.0-beta.15"
+    "vue-multiselect": "^2.0.0-beta.15",
+    "vue2-google-maps": "^0.8.0"
   },
   "scripts": {
     "dev": "nuxt",

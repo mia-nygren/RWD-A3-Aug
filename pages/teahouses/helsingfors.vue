@@ -6,22 +6,25 @@
     <p>Every day our staff bake bread that is ready for breakfast. Lorem ipsum dolor sit amet, 
     consectetur adipiscing elit. Vivamus eget imperdiet arcu.</p>
     
-    <h1 id="menu" class="centered" name="menu">MENU</h1>
-    <Menu :drinks="drinks" :brunch="brunch" :breakfast="breakfast" />
+    
+    <Menu :drinks="drinks" :brunch="brunch" :breakfast="breakfast" currency="&#x20AC;"/>
 
-   <featured-menu-item :item="{name: 'Carrot Cake', price: '35'}" price="15" month="August" />
+   <featured-menu-item :item="{name: 'Blueberry Muffin', price: '2.5'}" price="1.5" month="August" fileName="carrotcake" currency="&#x20AC;"/>
    
     <h3> Vegan food and/or allergies?</h3>
     <p>Don't worry, we have plenty of options, just ask! </p>
-
-    <h1 id="find us" name="find us">Find us </h1>
-    <p> Google map </p>
-    
+      
     <h1 id="contact" name="contact">Contact us </h1>
     <p>Contact information here</p>
+    
     <h2 id="hours">Opening Hours </h2>
     <hours />
-   
+
+    <br />
+    <h1 id="address" name="address">Find us </h1>
+    <p> Address: <a href="https://www.google.se/maps/place/Helsingfors,+Finland" target="-blank">{{title}}</a>  ... </p>
+    <google-maps class="jsOnly" infoText="Tea2go in Helsingfors" :coordinates="{lat: 60.177772, lng: 24.934338}" />
+
   </div>
 </template>
 
@@ -30,6 +33,7 @@ import Hours from '~components/teahouses/opening-hours/helsingfors'
 import Menu from '~components/teahouses/Menu'
 import headerImage from '~assets/images/teahouses/helsingfors-large.jpg'
 import FeaturedMenuItem from '~components/teahouses/FeaturedMenuItem'
+import GoogleMaps from '~components/teahouses/GoogleMap'
 
 let title = 'Helsingfors'
 
@@ -38,11 +42,12 @@ export default {
   components: {
     Hours,
     Menu,
-    FeaturedMenuItem
+    FeaturedMenuItem,
+    GoogleMaps
   },
   fetch ({ store, params }) {  // Fetch is called before the component renders, and can make changes to the store
     store.commit('changeHeaderImageURL', headerImage) // in this case I change the header image and title
-    store.commit('changeHeaderTitle', title)
+    // store.commit('changeHeaderTitle', title)
   },
   computed: {
     getTitle () {
@@ -53,47 +58,27 @@ export default {
     return {
       title: title,
       drinks: [
-        {name: 'tea', items: [{name: 'Earl Grey', price: '25'}, {name: 'White tea', price: '25'}, {name: 'Oolong', price: '25'}]},
-        {name: 'juice', items: [{name: 'Orange', price: '35'}, {name: 'Apple, carrot and ginger', price: '45'}]}
+        {name: 'tea', items: [{name: 'Earl Grey', price: '2.5'}, {name: 'Green tea', price: '2.5'}, {name: 'Oolong', price: '2.5'}, {name: 'White tea', price: '2.5'}, {name: 'Yellow tea', price: '2.5'}]},
+        {name: 'juice', items: [{name: 'Orange', price: '4'}, {name: 'Apple, carrot and ginger', price: '4.5'}]}
       ],
       brunch: [
-        {name: 'Sallads', items: [{name: 'Beetroot and goat cheese', price: '85'}, {name: 'Salmon and quinoa', price: '85'}]},
-        {name: 'Toast', items: [{name: 'Avocado and chillitoast', price: '75'}]}
+        {name: 'Sallads', items: [{name: 'Beetroot and goat cheese', price: '9'}, {name: 'Salmon and quinoa', price: '9'}]},
+        {name: 'Toast', items: [{name: 'Avocado and chillitoast', price: '6'}]}
       ],
       breakfast: [
-        {name: 'Bread/Toast', items: [{name: 'Mushroom toast with chestnuts', price: '55'}, {name: 'Toasted organic croissant', price: '40'}]},
-        {name: 'Porrige', items: [{name: 'Gluten free organic porridge', price: '35'}, {name: 'Salmon and quinoa', price: '85'}]},
-        {name: 'Eggs', items: [{name: 'Organic baked eggs with smoked salmon', price: '55'}, {name: 'Organic scrambled eggs', price: '45'}]},
-        {name: 'Fruit', items: [{name: 'Banana with almondbutter and hempseeds', price: '35'}, {name: 'Organic Fruit Bowl', price: '40'}]}
+        {name: 'Bread/Toast', items: [{name: 'Mushroom toast with chestnuts', price: '6'}, {name: 'Toasted organic croissant', price: '4'}]},
+        {name: 'Porrige', items: [{name: 'Gluten free organic porridge', price: '4'}, {name: 'Salmon and quinoa', price: '9'}]},
+        {name: 'Eggs', items: [{name: 'Organic baked eggs with smoked salmon', price: '6'}, {name: 'Organic scrambled eggs', price: '4.5'}]},
+        {name: 'Fruit', items: [{name: 'Banana with almondbutter and hempseeds', price: '4'}, {name: 'Organic Fruit Bowl', price: '4'}]}
       ],
       desserts: [
-        {name: 'Cake', items: [{name: 'Gluten free brownie', price: '35'}, {name: 'Carrot Cake', price: '35'}]},
-        {name: 'Muffins', items: [{name: 'Organic baked eggs with smoked salmon', price: '55'}, {name: 'Organic scrambled eggs', price: '45'}]},
-        {name: 'Ice Cream', items: [{name: 'Mushroom toast with chestnuts', price: '55'}, {name: 'Toasted organic croissant', price: '40'}]},
-        {name: 'Fruit', items: [{name: 'Banana with almondbutter and hempseeds', price: '35'}, {name: 'Organic Fruit Bowl', price: '40'}]}
+        {name: 'Cake', items: [{name: 'Gluten free brownie', price: '4'}, {name: 'Carrot Cake', price: '4'}]},
+        {name: 'Muffins', items: [{name: 'Organic baked eggs with smoked salmon', price: '6'}, {name: 'Organic scrambled eggs', price: '4.5'}]},
+        {name: 'Ice Cream', items: [{name: 'Mushroom toast with chestnuts', price: '6'}, {name: 'Toasted organic croissant', price: '4'}]},
+        {name: 'Fruit', items: [{name: 'Banana with almondbutter and hempseeds', price: '4'}, {name: 'Organic Fruit Bowl', price: '4'}]}
       ]
     }
   }
 }
 </script>
-<style scoped>
-.imgWrapper img{
-  width:100%;
-}
-.imgWrapper {
-  width:100%;
-  margin:1em 0 1em;
-  margin-bottom:4em;
-}
-h2 {
-  font-size: 1.2em;
-  line-height:1.4;
-  padding-top:1.2em;
-  padding-bottom:1.2em;
-}
-#menu {
-  font-size:1.2em;
-  border-bottom: 2px solid #000;
-  margin-top:2em;
-}
-</style>
+

@@ -1,9 +1,9 @@
 <template>
   <div class="featured">
     <h3> Dessert of the month ({{ month }})</h3>
-    <p> Organic Carrot Cake. Price <span class="price">{{price}}kr </span>(usually {{item.price}}kr)</p>
+    <p> {{item.name}}. Price <span class="price">{{price}}</span><span v-html="currency"></span> (usually {{item.price}} <span v-html="currency"></span>)</p>
     <div class="imgWrapper">
-      <src-set :get-image-src="getImageSrc" file-name="carrotcake" />
+      <src-set :get-image-src="getImageSrc" :file-name="fileName" />
     </div>
   </div>
 </template>
@@ -25,7 +25,16 @@ export default {
       type: String,
       required: true
     },
+    currency: {
+      type: String,
+      required: false,
+      default: 'SEK'
+    },
     month: {
+      type: String,
+      required: true
+    },
+    fileName: {
       type: String,
       required: true
     }
@@ -45,6 +54,13 @@ export default {
 </script>
 
 <style scoped>
+.imgWrapper img{
+  max-width:100%;
+}
+.imgWrapper {
+  width:100%;
+  margin:1em 0 1em;
+}
 .featured p {
   font-size:1em;
 }

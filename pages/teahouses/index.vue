@@ -1,7 +1,7 @@
 <template>
   <div class="mainContent">
   <div class="text">
-    <h1 class="title"> Our Tea Houses </h1>
+    <h1 class="title centered borderBottom"> Our Tea Houses </h1>
       <p>
       Our restaurants / tehouses serves fairtrade and organic food. 
       You can choose between a vast selection of quality organic and fairtraide tea to have with your meal, or just a cup of tea. 

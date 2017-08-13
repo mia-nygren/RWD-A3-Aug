@@ -89,24 +89,32 @@ export default {
   background-color: #7d8066;
 }
 
+
 .multiselect {
-  float: left;
+  margin:0 auto;
+  width:200px;
 }
+
+.multiselect__tags {
+  min-width:200px;
+}
+
 
 /* Css för egen kod, såsom visning av sökresultat */
 
 .wrapper {
-  text-align: left;
+  text-align: center;
 }
 
 .searchBar {
-  max-width: 10em;
+  min-width: 10em;
 }
 
 .searchResult {
   display: block;
   margin: 0 auto;
   height: auto;
+  margin-top:3em;
 }
 
 @media(min-width:30em) {
@@ -120,7 +128,6 @@ export default {
     margin: 0 auto;
     height: auto;
     margin-left: -100px;
-    /* sista-minuten css vet inte varför det hamnar som det gör.... TODO */
   }
 }
 </style>

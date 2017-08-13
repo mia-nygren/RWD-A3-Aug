@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
-    <!-- th = table header , tr = table row , td = table data -->
-    <!-- Genom att loopa med 'v-for' så skapas meny-tabellen dynamisk utefter vad för data som ges,
-   jag slipper därför att skriva massa tablerows och tabledata för alla saker som finns på menyn -->
-    <inner-table title="Drinks" v-bind:items="drinks"/>
-    <inner-table title="Breakfast" v-bind:items="breakfast" />
-    <inner-table title="Brunch" v-bind:items="brunch"/>
-    <inner-table title="Lunch" v-bind:items="lunch"/>
+    <h1 id="food" class="centered" name="menu">MENU</h1>
+    <inner-table title="Breakfast" v-bind:items="breakfast" :currency="currency"/>
+    <inner-table title="Brunch" v-bind:items="brunch" :currency="currency"/>
+    <inner-table title="Lunch" v-bind:items="lunch" :currency="currency"/>
+    <inner-table title="Drinks" v-bind:items="drinks" :currency="currency"/>
+    <inner-table title="Dessert" v-bind:items="dessert" :currency="currency"/>
+    
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     currency: {
       type: String,
       required: false,
-      default: 'kr'
+      default: 'SEK'
     },
     drinks: {
       type: Array,
@@ -74,6 +74,17 @@ export default {
 .wrapper {
   padding-top:0;
   padding-bottom:4em;
+}
+h2 {
+  font-size: 1.2em;
+  line-height:1.4;
+  padding-top:1.2em;
+  padding-bottom:1.2em;
+}
+#food {
+  font-size:1.2em;
+  border-bottom: 2px solid #000;
+  margin-top:2em;
 }
 
 </style>

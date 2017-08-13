@@ -20,7 +20,7 @@
       </div>
     </div>
     
-    <div class="categoriesWrapper">
+    <div class="categoriesWrapper seamlessGrungeBackground">
       <h2 class="centered greyText"> Our Tea Varaities </h2>
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" :is-thumbnail="true" />
     </div>
@@ -129,7 +129,6 @@ export default {
   width: 100%;
   text-align: center;
   margin-bottom: 40px;
-  background-image: url('../assets/images/grunge-background-seamless.jpg');
   padding: 50px 0;
 }
 
@@ -144,6 +143,7 @@ export default {
   background-size: 100%;
   min-height: 400px;
   padding:70px 0;
+  margin-top:4em;
 }
 
 .greyText {

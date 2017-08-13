@@ -1,7 +1,6 @@
 <template>
   <div class="mainContent">
     <opening-hours :display-title="true" />
-      <h3 class="centered"> Welcome! </h3>
   </div>
 </template>
 
@@ -14,6 +13,4 @@ export default {
   }
 }
 </script>
-<style>
 
-</style>

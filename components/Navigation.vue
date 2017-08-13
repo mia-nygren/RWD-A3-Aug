@@ -1,29 +1,31 @@
 <template>
-    <div class="nav" aria-label="Main Menu">
-      <nav>
-        <!-- v-on-clickaway används för att se om användaren har klickat utanför menyn, då stängs menyn (javascript only) 
-        v-on-clickaway anropar funktionen hideMenu som ändrar checkboxens status -->
-        <div v-on-clickaway="hideMenu">
-          <label id="menuButton" for="navTrigger">&#8801;</label> <!-- https://stackoverflow.com/a/32081526/4178864 -->
-          <input type="checkbox" id="navTrigger" class="navTrigger" v-model="checked" />
-          <ul class="navigation">
-            <!-- nuxt-link används för att navigera i applikationen, och den ger också en active klass för den länk som hör samman med sidan man är på -->
-            <li v-on:click="hideMenu" class="home">
-              <nuxt-link to="/" exact >Home</nuxt-link>
-            </li>
-            <li v-on:click="hideMenu" class="teaVarieties">
-              <nuxt-link to="/tea">Tea Varieties</nuxt-link>
-            </li>
-            <li v-on:click="hideMenu" class="teaHouses">
-             <nuxt-link to="/teahouses">Tea Houses</nuxt-link>
-            </li>
-             <li v-on:click="hideMenu" class="openingHours">
-              <nuxt-link to="/hours">Opening hours</nuxt-link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <div class="nav" aria-label="Main Menu">
+    <nav>
+      <!-- v-on-clickaway används för att se om användaren har klickat utanför menyn, då stängs menyn (javascript only) 
+       v-on-clickaway anropar funktionen hideMenu som ändrar checkboxens status -->
+      <div v-on-clickaway="hideMenu">
+        <label id="menuButton" for="navTrigger">&#8801;</label>
+        <!-- https://stackoverflow.com/a/32081526/4178864 -->
+        <input type="checkbox" id="navTrigger" class="navTrigger" v-model="checked" />
+        <ul class="navigation">
+          <!-- nuxt-link används för att navigera i applikationen, och den ger också en active klass för den länk som hör samman med sidan man är på -->
+          <li v-on:click="hideMenu" class="home">
+            <nuxt-link to="/" exact>Home</nuxt-link>
+          </li>
+          <li v-on:click="hideMenu" class="teaVarieties">
+            <nuxt-link to="/tea">Tea Varieties</nuxt-link>
+          </li>
+          <li v-on:click="hideMenu" class="teaHouses">
+            <nuxt-link to="/teahouses">Tea Houses</nuxt-link>
+          </li>
+          <li v-on:click="hideMenu" class="openingHours">
+            <nuxt-link to="/hours">Opening hours</nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
+
 </template>
 <script>
   import { directive as onClickaway } from 'vue-clickaway'
@@ -37,12 +39,8 @@
       }
     },
     methods: {
-      toggleMenu () {
-        console.log(this.isOpen)
-        console.log('clicked the menubtn')
-      },
       hideMenu () {
-        console.log('clicked OUTSIDE OF MENU or on menuButton !')
+        // console.log('clicked OUTSIDE OF MENU or on menuButton !')
         this.checked = false
       }
     },
@@ -83,12 +81,12 @@
 .navigation .nuxt-link-active,
 .navigation .nuxt-link-exact-active {
   color: #FFF;
-  background-color: $medium-grey;
+  background-color: $mediumGrey;
   font-weight: 700;
 }
 
 .navigation .nuxt-link-active:hover {
-  background-color: $medium-grey;
+  background-color: $mediumGrey;
 }
 
 .navigation li {

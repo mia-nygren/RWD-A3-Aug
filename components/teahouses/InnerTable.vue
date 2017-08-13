@@ -1,18 +1,21 @@
 <template>
-<div v-if="items.length > 0">
- <h2 class="menuTitle" v-if="title !== null">{{title}}</h2>
+  <div v-if="items.length > 0">
+    <!-- th = table header , tr = table row , td = table data -->
+    <!-- Genom att loopa med 'v-for' så skapas meny-tabellen dynamisk utefter vad för data som ges,
+       jag slipper därför att skriva massa tablerows och tabledata för alla saker som finns på menyn -->
+    <h2 class="menuTitle" v-if="title !== null">{{title}}</h2>
     <table v-for="item in items" v-bind:key="item">
       <thead>
-       <tr>
-        <th scope="col" colspan="2">{{capitalize(item.name)}}</th>
-        <!-- drink kan vara till exempel juice -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="i in item.items" v-bind:key="i.name">
-        <td class='item'>{{i.name}} </td>
-        <td class='price'>{{i.price}} {{currency}}</td> 
-      </tr>
+        <tr>
+          <th scope="col" colspan="2">{{capitalize(item.name)}}</th>
+          <!-- drink kan vara till exempel juice -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="i in item.items" v-bind:key="i.name">
+          <td class='item'>{{i.name}} </td>
+          <td class='price'>{{i.price}} <span v-html="currency"></span></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -30,7 +33,7 @@ export default {
     currency: {
       type: String,
       required: false,
-      default: 'kr'
+      default: 'SEK'
     },
     items: {
       type: Array,
@@ -46,18 +49,21 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '~assets/styles/colors.scss';
 
 table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border-bottom: 1px solid red;
 }
 
 th {
   padding: 1em 0 .5em 0;
   text-align: left;
+}
+td {
+   border-bottom: 1px dotted $lightBrown;
 }
 
 tr {
@@ -77,7 +83,12 @@ tr {
 .price {
   min-width: 3em;
   text-align: right;
+  color: $mediumGrey;
 }
 
+.price span {
+  font-size:0.8em; 
+  color: $mediumGrey;
+}
 </style>
 

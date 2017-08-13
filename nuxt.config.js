@@ -35,7 +35,7 @@ module.exports = {
   */
   build: {
     publicPath: 'https://mia-nygren.github.io/RWD-A3-Aug/',
-    vendor: ['vue-multiselect', 'lodash'],
+    vendor: ['vue-multiselect', 'lodash', 'vue-clickaway'],
     loaders: [
       {
         test: /\.json$/,
@@ -95,7 +95,8 @@ module.exports = {
     }
   },
   plugins: [
-      { src: '~plugins/vue-multiselect/vue-multiselect.js', injectAs: 'multiSel', ssr: true }
+      { src: '~plugins/vue-multiselect/vue-multiselect.js', injectAs: 'multiSel', ssr: true },
+      { src: '~plugins/maps.js', ssr: true }
   ],
   css: [
     // CSS för Google Fonts Oxygen

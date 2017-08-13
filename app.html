@@ -5,17 +5,14 @@
     <script>
       // Här har jag fixat så att vissa polyfills bara hämtas i IE. Så det inte blockerar renderingen för HTML i andra webbläsare. 
       var addIEPollyfills = function () {
-        console.log('adding promise');
         createScriptTag('https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise', false)
       }
       // Detecting IE  - ispirerad av:  https://codepen.io/gapcode/pen/vEJNZN
       // Get IE or Edge browser version
       var version = detectIE()
-
       if (version === true) { // It is internet explorer
         // Add polyfill if IE
         addIEPollyfills()
-
       } else {
         console.log('not IE' + window.navigator.userAgent);
       }
@@ -34,16 +31,6 @@
         }
         // other browser
         return false;
-      }
-
-      function pictureElementisSupported () { // https://stackoverflow.com/a/34743997/4178864
-        let pic = !!window.HTMLPictureElement
-        return pic
-      }
-
-      // ONLY GET polyfill for picture element if it is not supported
-      if (!pictureElementisSupported()) {
-        // createScriptTag('https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js', true)
       }
 
       function createScriptTag (src, isDefer) {

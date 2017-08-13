@@ -1,20 +1,18 @@
 <template>
   <div class="mainContent">
     <div class="text">
-      <h1 class="title centered"> Tea Variaties </h1>
+      <h1 class="title centered borderBottom"> Tea Variaties </h1>
       <p>
         We have a lot of tea variaties! All of them are fairtrade and organic. Lorem ipsum dolor sit amet, vim offendit gubergren ullamcorper ea, 
         nostrud elaboraret ullamcorper ad vim, deleniti insolens complectitur sea ne. Sint luptatum vim ad, has no laboramus vituperata. Vel nemore propriae eu.</p>
-      <img class="organic" src="~assets/images/fairTrade.svg" alt="fairTrade">
-      <h1> Choose a tea: </h1>
-      <div id="searchBar" class="jsOnly">
-        <div class="searchbarWrapper">
+      <img class="organic" src="~assets/images/organic.svg" alt="organic">
+      <h1 class="centered"> Choose a tea: </h1>
+        <div class="searchbarWrapper jsOnly">
           <search v-if="showMounted" v-bind:optionsArray="orderedCategoriesSearch" placeholderText="Search tea" />
-        </div>
       </div>
   
     </div>
-    <div class="categoriesWrapper">
+    <div class="categoriesWrapper seamlessGrungeBackground">
       <div class="lighten">
         <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" v-bind:isThumbnail="false" />
       </div>
@@ -70,10 +68,12 @@ export default {
   .mainContent {
     padding-bottom:0;
   }
+  .searchbarWrapper {
+    margin:0 auto;
+  }
+  
  .categoriesWrapper {
    width:100%;
-   background-image: url('../../assets/images/headerPhoto.jpg'); 
-   background-size:cover; 
    text-align:center;
    margin:70px 0 0 0;
    padding:0;
@@ -84,14 +84,7 @@ export default {
    padding:50px 0;
  }
  .organic {
-      width:100px;
-      margin:0 auto;
-    }
-
-@media(min-width:30em) {
-.organic {
       width:200px;
-      margin-left:300px;
-    }
-}
+      margin:0 auto!important;
+  }
 </style>

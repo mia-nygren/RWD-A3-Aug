@@ -22,7 +22,7 @@
 <script>
 import { mapGetters } from 'vuex'
 let picturefill = null
-if (process.BROWSER_BUILD) {
+if (process.BROWSER_BUILD) { // För att det bara ska hämtas och köras på client sidan
   picturefill = require('picturefill')
 }
 export default {
@@ -43,14 +43,15 @@ export default {
       // this watches the store state and runs every time the image in the header is changed.
       if (process.BROWSER_BUILD) {
         // For some reason it does not work properly with IE....
-        if (typeof picturefill === 'function') {
+        let pic = !!window.HTMLPictureElement // https://stackoverflow.com/a/34743997/4178864
+        console.log('PIC ? : ' + pic)
+        if (typeof picturefill === 'function' & pic !== true) {
           picturefill({
             reevaluate: true,
             elements: [document.getElementById('headerImage')]
           })
         }
       }
-      return
     }
   },
   computed: {
