@@ -1,9 +1,9 @@
 <template>
+<!-- HTML kod är omringad i template taggar -->
   <div class="mainContent">
     <div class="centered startWrapper">
       <h2 class="centered">Our teahouses</h2>
       <p>We have three teahouses placed in Scandinavia.</p>
-      <!-- <p>state = {{ $store.state }}</p> TODO -->
     </div>
       <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
       <tea-houses :is-thumbnail="true" />
@@ -22,6 +22,8 @@
     
     <div class="categoriesWrapper seamlessGrungeBackground">
       <h2 class="centered greyText"> Our Tea Varaities </h2>
+      // För att skicka med egenskaper och värden till en komonent skriver man in dem i taggen 
+      // Här loopas alla tekategorier och ett kort skapas för varje tesort
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" :is-thumbnail="true" />
     </div>
     <opening-hours />
@@ -32,7 +34,6 @@
 import _ from 'lodash'
 import CategoryCard from '~components/categories/CategoryCard'
 import teaJSON from '~static/data/tea.json'
-import Search from '~components/Search'
 import TeaHouses from '~components/teahouses/TeaHouses'
 import OpeningHours from '~components/teahouses/opening-hours/OpeningHours'
 
@@ -42,15 +43,14 @@ let text = 'We make sure that all our tea is fair trade. We also have organic an
 let headerImageFileName = 'index'
 
 export default {
-  layout: 'default',
-  components: {
-    CategoryCard,
-    Search,
+  layout: 'default', // Layouts hittas i mappen layouts i rootkatalogen (jag har två stycken, en default och en för tehus.)
+  components: { // Här registrerar man de komponenter man vill använda på denna sidan
+    CategoryCard, // CategoryCard är vad jag har döpt komonenter som har te som kategori, mest för att de ev. ska kunna användas till annat om man vill uttöka sidan
     TeaHouses,
     OpeningHours
   },
   fetch ({ store, params }) {
-    // store.commit('')
+    // Här utför jag ändringar till store (index.js) som kan hittas under mappen /store/ i root katalogen
     store.commit('changeHeaderTitle', title)
     store.commit('changeHeaderText', text)
     store.dispatch('changeHeaderImageFileName', headerImageFileName)
@@ -77,37 +77,18 @@ export default {
 <style lang="scss" scoped >
 @import '~assets/styles/colors.scss';  // Importerar enbart variables och fördubblar inte CSS
 
-.boxy {
-  position:relative;
-}
-.boxy:before {
-  content:'';
-  display:block;
-  padding-top:30%;
-}
 .content {
-  position:absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  // background-image:url($imagePATH);
-
-}
-.test-pic {
-  float: left;
-  width: 250px;
-  @media screen and (max-width: 320px) {
-    width: 100px;
-  }
-  @media screen and (min-width: 1200px) {
-    float: none;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .main {
   padding-bottom: 50px;
 }
+
 .leaf {
   width: 10em;
   float: right;
@@ -128,12 +109,10 @@ export default {
 }
 
 .organicWrapper {
-  background-color: #F9F5F2;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-color: $lightBeige;
   min-height: 400px;
-  padding:70px 0;
-  margin-top:4em;
+  padding: 70px 0;
+  margin-top: 4em;
 }
 
 .greyText {
@@ -146,4 +125,5 @@ export default {
     margin-left: 4em;
   }
 }
+
 </style>
