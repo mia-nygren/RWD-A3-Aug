@@ -3,7 +3,7 @@
   <div class="text">
     <h1 class="title centered borderBottom"> Our Tea Houses </h1>
       <p>
-      Our restaurants / tehouses serves fairtrade and organic food. 
+      Our tea houses serves fairtrade and organic food. 
       You can choose between a vast selection of quality organic and fairtraide tea to have with your meal, or just a cup of tea. 
       Which is excellent on it's own of course!
        </p>
@@ -20,6 +20,10 @@ import TeaHouses from '~components/teahouses/TeaHouses'
 export default {
   components: {
     TeaHouses
+  },
+  fetch ({store}) {
+    store.dispatch('changeHeaderImageFileName', 'teahouses')
+    store.dispatch('resetHeaderTextandTitle')
   }
 }
 </script>

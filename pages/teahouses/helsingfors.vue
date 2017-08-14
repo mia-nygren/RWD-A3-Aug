@@ -44,6 +44,7 @@ export default {
   },
   fetch ({ store, params }) {  // Fetch is called before the component renders, and can make changes to the store
     store.dispatch('resetHeaderTextandTitle') // I'm resetting since I don't want any text only an image
+    console.log('changing HELSINGFORS to title: ' + title)
     store.dispatch('changeHeaderImageFileName', title) // Change the header image file name
   },
   computed: {

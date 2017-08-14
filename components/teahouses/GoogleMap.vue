@@ -1,6 +1,6 @@
 <template>
    <div class="map-container">
-    <gmap-map class="gmap" :center="coordinates" :zoom="12">
+    <gmap-map :center="coordinates" :zoom="12">
       <gmap-marker :position="coordinates">
       </gmap-marker>
       <gmap-info-window v-if="infoText !==null" :position="coordinates">
@@ -42,15 +42,15 @@ export default {
     min-height: 100px;
     margin-bottom:4em;
   }
-  .gmap {
+  .vue-map-container, .vue-map {
     min-height:300px;
   }
+
   @media(min-width:30em) {
     .map-container {
       min-height: 400px;
     }
-    .gmap {
-      height:400px;
+    .vue-map-container, .vue-map {
       min-height:400px;
   }
   }
