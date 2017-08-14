@@ -1,10 +1,9 @@
 <template>
-    <div v-bind:class="['card', wrapperClass, {'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
+  <div v-bind:class="['card', wrapperClass, {'smallPreview': isThumbnail, 'largePreview': !isThumbnail}]">
   <div class="content" > 
-      <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">
-      
+      <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">  
       <div class="imgWrapper">
-      <img  v-if="isThumbnail" v-bind:src="getImageURL(large, name +'_thumbnail', '.jpg')" />
+      <img  v-if="isThumbnail" v-bind:src="getImageURL(large, name +'-thumbnail', '.jpg')" />
       <img v-else v-bind:src="getImageURL(large, name, '.jpg')" />
       </div>
       <h1 class="title centered"> {{name}}</h1>
@@ -43,7 +42,7 @@ export default {
   },
   methods: {
     getImageURL (size, name, fileEnding) {
-      let path = name.toLowerCase() + '_' + size + fileEnding
+      let path = name.toLowerCase() + '-' + size + fileEnding
       try {
         let image = images('./' + path)
         return image

@@ -77,28 +77,33 @@ export default {
 </script>
 <!-- OBS!!! vue-multiselect.min.css är CSS som jag inte har skrivit själv - https://monterail.github.io/vue-multiselect/ -->
 <style src="../plugins/vue-multiselect/vue-multiselect.css"></style>
-<style>
+<style lang="scss">
+@import '~assets/styles/colors.scss';
 
 /* Här överskriver jag den CSS som jag inte vill ha! */
 
 .multiselect__tag,
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:after,
+.multiselect__tag-icon:hover,
 .multiselect__option--highlight,
 .multiselect__option--highlight:after,
-.multiselect__option--selected.multiselect__option--highlight {
-  background: #7d8066;
-  background-color: #7d8066;
+.multiselect__option--selected.multiselect__option--highlight,
+.multiselect__option--selected, 
+.multiselect__option--selected.multiselect__option--highlight:after {
+  background: $logoGreen !important;
+  background-color: $logoGreen !important;
 }
 
 
 .multiselect {
   margin:0 auto;
-  width:200px;
+  width:100%;
 }
 
 .multiselect__tags {
   min-width:200px;
 }
-
 
 /* Css för egen kod, såsom visning av sökresultat */
 
@@ -107,7 +112,8 @@ export default {
 }
 
 .searchBar {
-  min-width: 10em;
+  width: 20em;
+  margin: 0 auto;
 }
 
 .searchResult {
@@ -118,12 +124,6 @@ export default {
 }
 
 @media(min-width:30em) {
-  .searchBar {
-    max-width: 20em;
-  }
-  .v-select {
-    width: 25em;
-  }
   .searchResult {
     margin: 0 auto;
     height: auto;

@@ -6,10 +6,9 @@
     <p>Every day our staff bake bread that is ready for breakfast. Lorem ipsum dolor sit amet, 
     consectetur adipiscing elit. Vivamus eget imperdiet arcu.</p>
     
-    
     <Menu :drinks="drinks" :brunch="brunch" :breakfast="breakfast" currency="&#x20AC;"/>
 
-   <featured-menu-item :item="{name: 'Blueberry Muffin', price: '2.5'}" price="1.5" month="August" fileName="carrotcake" currency="&#x20AC;"/>
+    <featured-menu-item :item="{name: 'Blueberry Muffin', price: '2.5'}" price="1.5" month="August" fileName="carrotcake" currency="&#x20AC;"/>
    
     <h3> Vegan food and/or allergies?</h3>
     <p>Don't worry, we have plenty of options, just ask! </p>
@@ -24,14 +23,12 @@
     <h1 id="address" name="address">Find us </h1>
     <p> Address: <a href="https://www.google.se/maps/place/Helsingfors,+Finland" target="-blank">{{title}}</a>  ... </p>
     <google-maps class="jsOnly" infoText="Tea2go in Helsingfors" :coordinates="{lat: 60.177772, lng: 24.934338}" />
-
   </div>
 </template>
 
 <script>
 import Hours from '~components/teahouses/opening-hours/helsingfors'
 import Menu from '~components/teahouses/Menu'
-import headerImage from '~assets/images/teahouses/helsingfors-large.jpg'
 import FeaturedMenuItem from '~components/teahouses/FeaturedMenuItem'
 import GoogleMaps from '~components/teahouses/GoogleMap'
 
@@ -46,8 +43,8 @@ export default {
     GoogleMaps
   },
   fetch ({ store, params }) {  // Fetch is called before the component renders, and can make changes to the store
-    store.commit('changeHeaderImageURL', headerImage) // in this case I change the header image and title
-    // store.commit('changeHeaderTitle', title)
+    store.dispatch('resetHeaderTextandTitle') // I'm resetting since I don't want any text only an image
+    store.dispatch('changeHeaderImageFileName', title) // Change the header image file name
   },
   computed: {
     getTitle () {

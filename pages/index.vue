@@ -35,11 +35,11 @@ import teaJSON from '~static/data/tea.json'
 import Search from '~components/Search'
 import TeaHouses from '~components/teahouses/TeaHouses'
 import OpeningHours from '~components/teahouses/opening-hours/OpeningHours'
-let images = require.context('../assets/images/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 
 // Här definerar jag titel och text som ska vara i headerimage på startsidan
 let title = 'Have a cup of tea that makes a difference!'
-let text = 'We make sure that all our tea is fair trade! We also have organic food and drinks, all for a fair price!'
+let text = 'We make sure that all our tea is fair trade. We also have organic and healthy food - all at a fair price!'
+let headerImageFileName = 'index'
 
 export default {
   layout: 'default',
@@ -50,8 +50,10 @@ export default {
     OpeningHours
   },
   fetch ({ store, params }) {
+    // store.commit('')
     store.commit('changeHeaderTitle', title)
     store.commit('changeHeaderText', text)
+    store.dispatch('changeHeaderImageFileName', headerImageFileName)
   },
   watch: {
     watchThumbnail: function () {
@@ -61,18 +63,6 @@ export default {
   methods: {
     jsonToArray (jsonObj) {  // https://stackoverflow.com/a/30153369/4178864
       return jsonObj[Object.keys(jsonObj)[0]]
-    },
-    getBackground (fileName) {
-      return 'url(\'' + this.getImageURL('medium', fileName, '.jpg') + '\');'
-    },
-    getImageURL (size, name, fileEnding) {
-      let path = name.toLowerCase() + '-' + size + fileEnding
-      try {
-        let image = images('./' + path)
-        return image
-      } catch (error) {
-        console.log('could not find the image at path: ' + path)
-      }
     }
   },
   computed: {

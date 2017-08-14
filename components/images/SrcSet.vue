@@ -1,8 +1,7 @@
 <template>
 <img v-bind:src="getImageSrc(medium, fileName, '.jpg')" 
         v-bind:srcset="getImageSrc(small, fileName, fileEnding) + ' 350w' + ',' + getImageSrc(medium, fileName , '.jpg') + 
-        ' 600w' + ',' + getImageSrc(large, fileName, '.jpg') + ' 850w' + ',' + getImageSrc(large +'-hd', fileName, '.jpg') + ' 1300w'" :sizes="sizes" :alt="alt"
-        /> 
+        ' 600w' + ',' + getImageSrc(large, fileName, '.jpg') + ' 850w' + ',' + getImageSrc(large +'-hd', fileName, '.jpg') + ' 1300w'" :sizes="sizes" :alt="alt" /> 
 </template>
 
 <script>

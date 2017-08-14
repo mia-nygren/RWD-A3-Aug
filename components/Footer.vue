@@ -4,10 +4,12 @@
       <div class="footerBase">
         <div class="textWrapper">
           <h4 class="contact centered">Contact us</h4>
+          <div>
           <span class="dot">&#x25C9;</span> <nuxt-link v-bind:to="{ path: '/teahouses/helsingfors', hash:'contact' }">Helsingfors</nuxt-link>
           <span class="dot">&#x25C9;</span><nuxt-link v-bind:to="{ path: '/teahouses/stockholm', hash:'contact' }">Stockholm</nuxt-link>
           <span class="dot">&#x25C9;</span> <nuxt-link v-bind:to="{ path: '/teahouses/oslo', hash:'contact' }">Oslo</nuxt-link>
-          <p class="copyright"> &copy; 2017  Tea2Go</p>
+          </div>
+          <p class="copyright">Tea2Go &copy; 2017 </p>
         </div>
       </div>
     </footer>
@@ -30,11 +32,16 @@
    display:inline-block;
    font-size:1.1em;
    line-height:1.8;
-   padding:0, .3em;
-   padding-right:.4em;
+   width:6.5em;
+   text-align:left;
+   padding:0 0.2em;
+   padding-right:.6em;
  }
  .footerBase a:hover {
    font-weight:700;
+ }
+ .textWrapper div {
+   margin-left:4.2em;
  }
  .dot {
    font-size:0.8em;
@@ -42,8 +49,9 @@
    padding:0 .5em;
  }
  .copyright {
-   margin-top: 2em;
+   margin-top: 3em;
    font-family: sans-serif;
+   color:$mediumGrey;
  }
  .contact {
    font-size:1.2em;

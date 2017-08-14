@@ -29,7 +29,6 @@
 <script>
 import Hours from '~components/teahouses/opening-hours/helsingfors'
 import Menu from '~components/teahouses/Menu'
-import headerImage from '~assets/images/teahouses/stockholm-large.jpg'
 import FeaturedMenuItem from '~components/teahouses/FeaturedMenuItem'
 import GoogleMaps from '~components/teahouses/GoogleMap'
 
@@ -44,8 +43,9 @@ export default {
     GoogleMaps
   },
   fetch ({ store, params }) {  // Fetch is called before the component renders, and can make changes to the store
-    store.commit('changeHeaderImageURL', headerImage) // in this case I change the header image and title
+    store.dispatch('changeHeaderImageFileName', title) // Change the header image file name
     // store.commit('changeHeaderTitle', title)
+    store.dispatch('resetHeaderTextandTitle')
   },
   computed: {
     getTitle () {

@@ -1,17 +1,14 @@
 <template>
 	<div class="logo">
 		<div class="logoContent">
-			<div class="imgWrapper">
+			<nuxt-link to="/" class="imgWrapper">
 			<img src="~assets/images/logo.svg" alt="Logotyp">
-			</div>
+			</nuxt-link>
 		</div>
 	</div>
 </template>
 
 <style scoped>
-.logo a {  
-	color:#000;
-}
 .logo {
 	position:relative;
 	margin:0 auto;

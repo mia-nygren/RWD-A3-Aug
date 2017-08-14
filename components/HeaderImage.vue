@@ -3,11 +3,15 @@
     <div class="box">
       <div class="content headerImage">
         <picture id="headerImage" class="picture">
-          <source :srcset="getHeaderImageURL" media="(min-width: 18em)" >
-          <source :srcset="getHeaderImageURL" media="(min-width: 18em)" >
-          <img :srcset="getHeaderImageURL" alt="Header Image">
+          <!-- true decides if image is 2x (hd) -->
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source :srcset="getImageSrc(small)" media="(max-width: 18em)" >
+          <source :srcset="getImageSrc(medium)" media="(min-width: 40em)" >
+          <source :srcset="getImageSrc(medium, true)" media="(min-width: 40em)" >
+          <source :srcset="getImageSrc(large, true)" media="(min-width: 70em)" >
+          <!--[if IE 9]></video><![endif]-->
+          <img :srcset="getImageSrc(large)" alt="Header Image">
         </picture>
-        <!-- <img v-bind:src="getHeaderImageURL" alt="background Image" /> -->
         <div class="headlineText">
           <h3>
             {{ getTitle }}
@@ -21,6 +25,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import {small, medium, large} from '~assets/js/shared.js'
+let images = require.context('../assets/images/header/', false, /\.jpg$/) // https://stackoverflow.com/a/39910752/4178864
 let picturefill = null
 if (process.BROWSER_BUILD) { // För att det bara ska hämtas och köras på client sidan
   picturefill = require('picturefill')
@@ -39,12 +45,11 @@ export default {
     }
   },
   watch: {
-    headerIMG: function () {
+    headerImageFileName: function () {
       // this watches the store state and runs every time the image in the header is changed.
       if (process.BROWSER_BUILD) {
         // For some reason it does not work properly with IE....
         let pic = !!window.HTMLPictureElement // https://stackoverflow.com/a/34743997/4178864
-        console.log('PIC ? : ' + pic)
         if (typeof picturefill === 'function' & pic !== true) {
           picturefill({
             reevaluate: true,
@@ -54,9 +59,17 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      small,
+      medium,
+      large,
+      fileName: ''
+    }
+  },
   computed: {
-    getHeaderImageURL () {
-      return this.$store.state.headerImageURL
+    getHeaderImageFileName () {
+      return this.$store.state.headerImageFileName
     },
     getTitle () { // om titel inte skickas med till componenten som en prop så hämtar den default-titel från filen store/index.js
       return (this.title !== null) ? this.title : this.$store.state.headerTitle
@@ -65,17 +78,34 @@ export default {
       return (this.text !== null) ? this.text : this.$store.state.headerText
     },
     ...mapGetters({
-      headerIMG: 'headerImageURL'
+      headerImageFileName: 'headerImageFileName'
     })
+  },
+  methods: {
+    getImageSrc (size, hd = false) {
+      let path = this.$store.state.headerImageFileName.toLowerCase() + '-' + size
+      if (hd) {
+        path += '-hd'
+      }
+      path += '.jpg'
+      try {
+        let image = images('./' + path)
+        return image
+      } catch (error) {
+        console.log('could not find the image at path: ' + path)
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~assets/styles/colors.scss';
+
 .picture {
   display:block;
   height:100%;
-  background:lightgray;
+  background:$lightGrey;
 }
   .headerImageWrapper {
     position:relative;
@@ -136,7 +166,6 @@ export default {
     width:15em; 
     margin:0 auto;
   }
-
 
   @media(min-width:18.6em) {
      .headlineText h3 {

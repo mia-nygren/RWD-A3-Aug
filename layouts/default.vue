@@ -11,15 +11,11 @@
 <script>
 import HeaderComponent from '~components/HeaderComponent'
 import Footerpart from '~components/Footer'
-import headerPhoto from '~/assets/images/headerPhoto.jpg'
 
 export default {
   components: {
     HeaderComponent,
     Footerpart
-  },
-  mounted () {
-    this.$store.commit('changeHeaderImageURL', headerPhoto)
   }
 }
 </script>
