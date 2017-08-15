@@ -5,7 +5,7 @@
       <h2 class="centered">Our teahouses</h2>
       <p>We have three teahouses placed in Scandinavia.</p>
     </div>
-      <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i menyn -->
+      <!-- TeaHouses är en komponent som listar alla tehus man har lagt in, så att de visas i på startsidan som miniatyrbilder -->
       <tea-houses :is-thumbnail="true" />
     <div class="text">
       <p> We serve brunch, lunch and afternoon tea. All fresh and daily made! We start our days by baking bread that you can have alongside with your cup of tea! </p>
@@ -22,7 +22,7 @@
     
     <div class="categoriesWrapper seamlessGrungeBackground">
       <h2 class="centered greyText"> Our Tea Varaities </h2>
-      <!-- För att skicka med egenskaper och värden till en komonent skriver man in dem i taggen 
+      <!-- För att skicka med egenskaper och värden till en komponent skriver man in dem i taggen 
       Här loopas alla tekategorier och ett kort skapas för varje tesort -->
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" :is-thumbnail="true" />
     </div>
@@ -45,7 +45,7 @@ let headerImageFileName = 'index'
 export default {
   layout: 'default', // Layouts hittas i mappen layouts i rootkatalogen (jag har två stycken, en default och en för tehus.)
   components: { // Här registrerar man de komponenter man vill använda på denna sidan
-    CategoryCard, // CategoryCard är vad jag har döpt komonenter som har te som kategori, mest för att de ev. ska kunna användas till annat om man vill uttöka sidan
+    CategoryCard, // CategoryCard är vad jag har döpt komponenter som har te som kategori, mest för att de ev. ska kunna användas till annat om man vill utöka sidan
     TeaHouses,
     OpeningHours
   },
