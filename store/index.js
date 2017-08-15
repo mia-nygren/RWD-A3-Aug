@@ -22,7 +22,6 @@ const store = () => {
         state.headerText = text
       },
       resetHeaderTextandTitle (state) {
-        console.log('RESETTSSSSS')
         state.headerText = ''
         state.headerTitle = ''
       }

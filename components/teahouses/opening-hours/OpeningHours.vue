@@ -41,6 +41,7 @@ export default {
   margin: 0 auto;
   padding: 2em;
   width: 30em;
+  max-width:100%;
 }
 
 .openingHours h2 {

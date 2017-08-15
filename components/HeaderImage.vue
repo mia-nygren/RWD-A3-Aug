@@ -9,7 +9,7 @@
           <source :srcset="`${getImageSrc(medium)} 1x, ${getImageSrc(medium, true)} 2x`" media="(min-width:900px) and (max-width: 1919px)" >
           <source :srcset="`${getImageSrc(large)} 1x, ${getImageSrc(large, true)} 2x`" media="(min-width: 1920px)" >
           <!--[if IE 9]></video><![endif]-->
-          <img :src="getImageSrc(medium,true)" :srcset="`${getImageSrc(medium)} 1x, ${getImageSrc(medium, true)} 2x`" alt="Header Image">
+          <img :src="getImageSrc(small,true)" :srcset="`${getImageSrc(small)} 1x, ${getImageSrc(small, true)} 2x`" alt="Header Image">
         </picture>
         <div class="headlineText">
           <h3>
@@ -48,7 +48,7 @@ export default {
       // this watches the store state and runs every time the image in the header is changed.
 
       if (process.BROWSER_BUILD) {
-        // For some reason it does not work properly with IE....
+        // For some reason it does not work properly with IE or ios8....
         let pic = !!window.HTMLPictureElement // https://stackoverflow.com/a/34743997/4178864
         if (typeof picturefill === 'function' & pic !== true) {
           picturefill({
@@ -206,6 +206,11 @@ Denna kod skulle kunna skrivas om och göras mycket bättre, speciellt i scss. *
       font-size:.4em;
       width:50em;
       margin-left:-24em;
+    }
+  }
+  @media(min-width:25.5em) {
+    .headlineText {
+      padding-top:70px;
     }
   }
    @media(min-width:26.5em) {

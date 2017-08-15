@@ -3,8 +3,12 @@
   <div class="content" > 
       <nuxt-link v-bind:to="{ path: '/tea/' +  cleanSlug(name)}">  
       <div class="imgWrapper">
-      <img  v-if="isThumbnail" v-bind:src="getImageURL(large, name +'-thumbnail', '.jpg')" />
-      <img v-else v-bind:src="getImageURL(large, name, '.jpg')" />
+      <img v-if="isThumbnail" v-bind:src="getImageSrc(medium, name +'-thumbnail', fileEnding)" 
+        :srcset="getImageSrc(medium, name +'-thumbnail' , fileEnding) + 
+        ' 400w' + ',' + getImageSrc(large, name +'-thumbnail', fileEnding) + ' 850w' + ','" sizes="(max-width: 40em) 212px" :alt="name" />
+      <img v-else v-bind:src="getImageSrc(medium, name, fileEnding)" 
+        :srcset="getImageSrc(medium, name, fileEnding) + 
+        ' 400w' + ',' + getImageSrc(large, name, fileEnding) + ' 850w' + ','"  :alt="name" /> 
       </div>
       <h1 class="title centered"> {{name}}</h1>
       </nuxt-link>
@@ -37,12 +41,13 @@ export default {
       cleanSlug,
       small,
       medium,
-      large
+      large,
+      fileEnding: '.jpg'
     }
   },
   methods: {
-    getImageURL (size, name, fileEnding) {
-      let path = name.toLowerCase() + '-' + size + fileEnding
+    getImageSrc (size, name, fileEnding) {
+      let path = cleanSlug(name) + '-' + size + fileEnding
       try {
         let image = images('./' + path)
         return image

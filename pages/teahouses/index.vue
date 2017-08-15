@@ -21,6 +21,11 @@ export default {
   components: {
     TeaHouses
   },
+  head () {
+    return {
+      title: 'tea2go - tea houses'
+    }
+  },
   fetch ({store}) {
     store.dispatch('changeHeaderImageFileName', 'teahouses')
     store.dispatch('resetHeaderTextandTitle')

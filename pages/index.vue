@@ -22,8 +22,8 @@
     
     <div class="categoriesWrapper seamlessGrungeBackground">
       <h2 class="centered greyText"> Our Tea Varaities </h2>
-      // För att skicka med egenskaper och värden till en komonent skriver man in dem i taggen 
-      // Här loopas alla tekategorier och ett kort skapas för varje tesort
+      <!-- För att skicka med egenskaper och värden till en komonent skriver man in dem i taggen 
+      Här loopas alla tekategorier och ett kort skapas för varje tesort -->
       <category-card v-for="c in orderedCategories" v-bind:name="c.name" v-bind:key="c.name" :is-thumbnail="true" />
     </div>
     <opening-hours />

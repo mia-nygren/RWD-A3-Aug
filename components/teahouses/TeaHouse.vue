@@ -5,7 +5,7 @@
       <h1 class="title"> {{name}}</h1>
       <div class="imgWrapper">
       <!-- src-set is a component I made that can be reused for img elements - have a look inside components/images/SrcSet.vue to understand more -->
-      <src-set v-if="isThumbnail" :get-image-src="getImageSrc" :file-name="name +'-thumbnail'" :alt="name" />
+      <src-set v-if="isThumbnail" :get-image-src="getImageSrc" :file-name="name +'-thumbnail'" :alt="name" sizes="(max-width: 40em) 212px" />
       <src-set v-else :get-image-src="getImageSrc" :file-name="name" :alt="name" />
       </div>
       </nuxt-link>

@@ -1,8 +1,8 @@
 # tea2go 
 
-> Delprov 3 (Omexamination)  - Skapandet av en prototyp (webbsida) för det fiktiva testället tea2go
-> Kurs: RWD3, Responsiv Webbdesign, WD452F, 7.5hp. VT 2017
-> Sammanfattning; Detta projekt har bestått av att utforma en high-fidelity prototyp (i form av en webbsida) för det fiktiva testället tea2go.
+> Delprov 3 (Omexamination)  - Skapandet av en prototyp (webbsida) för det fiktiva testället tea2go  
+> Kurs: RWD3, Responsiv Webbdesign, WD452F, 7.5hp. VT 2017  
+> Sammanfattning; Detta projekt har bestått av att utforma en high-fidelity prototyp (i form av en webbsida) för det fiktiva testället tea2go. 
 
 
 ## Kod och katalogstruktur
